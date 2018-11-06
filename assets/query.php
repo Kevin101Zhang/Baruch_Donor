@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/query.css" type="text/css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-
+<!-- hello -->
   <?php
   if(isset($_POST['submit'])){
     
