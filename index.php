@@ -7,13 +7,13 @@
   </head>
   <body>
 
-<form method="post" action="query.php">
+<form method="post" action="assets/query.php">
 <h1>Please Log In</h1>
 <p>Username: <input type="text" name="username"></p>
 <p>Password: <input type="password" name="password"></p>
 <p><input type="submit" name="submit" value="Log In"></p>
 </form>
-<!-- fdssdf -->
+
   </body>
 </html>
 
