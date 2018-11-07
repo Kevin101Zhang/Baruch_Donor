@@ -2,8 +2,6 @@
   <head>
     <meta charset="UTF-8">
     <title>BCTC project</title>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
-  <link rel="stylesheet" href="css/query.css" type="text/css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
 <!-- hello -->
