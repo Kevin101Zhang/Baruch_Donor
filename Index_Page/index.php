@@ -1,11 +1,25 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>BCTC project</title>
-  </head>
-  <body>
-<!-- hello -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <!-- All using Index CSS until styled -->
+</head>
+
+<body>
+  <form method="post" action="index.php">
+    <h1>Please Log In</h1>
+    <p>Username: <input type="text" name="username"></p>
+    <p>Password: <input type="password" name="password"></p>
+    <p><input type="submit" name="submit" value="Log In"></p>
+  </form>
+
   <?php
+
   if(isset($_POST['submit'])){
     
     $host = "localhost";
@@ -32,33 +46,27 @@
       // query the database to see if there is a record which matches
       $query = "select count(*) from $table where username = '$username' and password = '$password' ";
       $result = mysqli_query($mysql, $query);
-
+      
       if(!$result) {
         echo "Cannot run query.";
         exit;
       }
-    
       $row = mysqli_fetch_row($result);
+
       $count = $row[0];
 
       if ($count > 0) {
         // visitor's name and password combination are correct
-        echo "<h1>Here it is!</h1>
-              <p>I bet you are glad you can see this secret page.</p>";
-  ?>
-
-  <form method="post" action="../index_page/admin.html">
-  </form>
-  <?php
+              echo "<script> location.href='admin.html'; </script>";
+              exit;  
+              
     } else {
       // visitor's name and password combination are not correct
-      echo "<h1>Go Away!</h1>
-            <p>You are not authorized to use this resource.</p>";
+      echo "<script> location.href='index.php'; </script>"; 
+            exit; 
     }
   }
   ?>
+</body>
 
-  </body>
 </html>
-
-
