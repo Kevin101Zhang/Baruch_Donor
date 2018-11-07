@@ -47,12 +47,7 @@
               <p>I bet you are glad you can see this secret page.</p>";
   ?>
 
-  <form method="post" action="query.php">
-  <h1>Please make your query</h1>
-  <p> </p>
-  <p>Username: <input type="text" name="username"></p>
-  <p>Password: <input type="password" name="password"></p>
-  <p><input type="submit" name="submit" value="Submit"></p>
+  <form method="post" action="../index_page/admin.html">
   </form>
   <?php
     } else {
