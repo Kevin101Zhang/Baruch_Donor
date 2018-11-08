@@ -44,11 +44,16 @@
       }
 
       // query the database to see if there is a record which matches
-      $query = "select count(*) from $table where username = '$username' and password = '$password' ";
+      // $query = "select count(*) from $table where username = '$username' and password = '$password' ";
+      $query = "select * from $table where username = '$username' and password = '$password' ";
       $result = mysqli_query($mysql, $query);
       
-      if(!$result) {
-        echo "Cannot run query.";
+      // if(!$result) {
+      //   echo "Cannot run query.";
+      //   exit;
+      // }
+      if($result) {
+        echo "$result";
         exit;
       }
       $row = mysqli_fetch_row($result);
