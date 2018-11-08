@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+    <h1>User Page</h1>
     <form method="post">
         <h1>Search For A Donor</h1>
         <p>Prefix: <input type="text" name="Prefix"></p>

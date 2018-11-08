@@ -19,7 +19,6 @@
   </form>
 
   <?php
-
   if(isset($_POST['submit'])){
     
     $host = "localhost";
@@ -30,47 +29,38 @@
     $port = "3306";
     $username = $_POST["username"];
     $password = $_POST["password"];
-     // connect to mysql
+    // connect to mysql
     $mysql = mysqli_connect($host, $host_user, $host_pass);
-     if(!$mysql) {
-        echo "Cannot connect to database.";
-        exit;
-      }
-      // select the appropriate database
-      $selected = mysqli_select_db($mysql, $database);
-      if(!$selected) {
-        echo "Cannot select database.";
-        exit;
-      }
 
-      // query the database to see if there is a record which matches
-      // $query = "select count(*) from $table where username = '$username' and password = '$password' ";
-      $query = "select * from $table where username = '$username' and password = '$password' ";
-      $result = mysqli_query($mysql, $query);
-      
-      // if(!$result) {
-      //   echo "Cannot run query.";
-      //   exit;
-      // }
-      if($result) {
-        echo "$result";
-        exit;
-      }
-      $row = mysqli_fetch_row($result);
-
-      $count = $row[0];
-
-      if ($count > 0) {
-        // visitor's name and password combination are correct
-              echo "<script> location.href='admin.html'; </script>";
-              exit;  
-              
-    } else {
-      // visitor's name and password combination are not correct
-      echo "<script> location.href='index.php'; </script>"; 
-            exit; 
+    if(!$mysql) {
+      echo "Cannot connect to database.";
+      exit;
     }
-  }
+    // select the appropriate database
+    $selected = mysqli_select_db($mysql, $database);
+    if(!$selected) {
+      echo "Cannot select database.";
+      exit;
+    }
+
+    //query the database for username and password
+    $query_user = "select username FROM $table WHERE username = '$username' ";
+    $query_password = "select password FROM $table WHERE password = '$password' ";
+
+    $user_result = mysqli_query($mysql, $query_user);
+    $password_result = mysqli_query($mysql, $query_password);
+
+    //check if there is a matching result
+    if (mysqli_num_rows($password_result)>0 && mysqli_num_rows($user_result)>0) {
+      // visitor's name and password combination are user credentials
+      echo "<script> location.href='user.php'; </script>"; 
+      exit; 
+    } elseif ($username == "bctcproject" && $password == "B@ruch123"){
+      // visitor's name and password combination are admin credentials
+      echo "<script> location.href='admin.php'; </script>";
+      exit; 
+    } 
+  } 
   ?>
 </body>
 

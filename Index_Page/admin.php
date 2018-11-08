@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<h1>Admin Page</h1>
   <form method="post">
     <h1>Add A Donor</h1>
     <p>Prefix: <input type="text" name="Prefix"></p>
