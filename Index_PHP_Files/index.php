@@ -17,16 +17,6 @@
 <body>
 
     <?php
-
-    function debug_to_console( $data ) {
-      $output = $data;
-      if ( is_array( $output ) )
-          $output = implode( ',', $output);
-    
-      echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-    
-      //debug_to_console( "Test" );
-    }
     
       if(isset($_POST['submit'])){
         
@@ -64,8 +54,6 @@
           $row = mysqli_fetch_row($result);
           $count = $row[0];
           
-          debug_to_console($row[0]);
-          debug_to_console($count);
     
           if ($count > 0) {
             // visitor's name and password combination are correct
