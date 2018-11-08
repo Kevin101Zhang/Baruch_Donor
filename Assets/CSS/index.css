@@ -1,5 +1,7 @@
 body {
-    background: #384047; 
+    background-image: url(../Images/login-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: sans-serif;
     font-size: 10px
   }
