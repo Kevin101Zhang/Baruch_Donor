@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Search For Donors</title>
-
+    <!-- Latest compiled and minified Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <!-- Linking Reset -->
     <link rel="stylesheet" href="../Assets/CSS/reset.css" type="text/css">
     <!-- Linking CSS -->
@@ -17,66 +18,81 @@
 
 <body>
 
-<?php
-        
+    <?php
+            
         $host = "localhost";
         $host_user = "root";
         $host_pass = "B@ruch123";
         $database = "baruch_donor";
-        $table = "donor";
+        // $table = "donor";
         $port = "3306";
         
-        $donorID = "donorID";
-        $firstName = "first_name";
-        $lastName = "last_name";
-        $prefix = "prefix";
-        $suffix = "suffix";
-        // $username = $_POST["username"];
-        // $password = $_POST["password"];
-
-        
-         
         // connect to mysql
         $mysql = mysqli_connect($host, $host_user, $host_pass);
-         if(!$mysql) {
-            echo "Cannot connect to database.";
-            exit;
-          }
-          // select the appropriate database
-          $selected = mysqli_select_db($mysql, $database);
-          if(!$selected) {
-            echo "Cannot select database.";
-            exit;
-          }
+        if(!$mysql) {
+        echo "Cannot connect to database.";
+        exit;
+        }
+        // select the appropriate database
+        $selected = mysqli_select_db($mysql, $database);
+        if(!$selected) {
+        echo "Cannot select database.";
+        exit;
+        }
+    ?>
 
-         $sql = "SELECT donorID, first_name, last_name, prefix, suffix FROM donor";
-         $result = $mysql>query($sql);
-
-         if ($result->num_rows > 0) {
-            echo "<table> <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Prefix</th><th><Suffix</th></tr>";
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["donorID"]. "</td><td>" . $row["first_name"]. "</td><td>" . $row["last_name"]. "</td><td>" . $row["prefix"]. "</td><td>" . $row["suffix"]. "</td></tr>";
-            }
-            echo "</table>";
-            } else {
-            echo "0 Search Results";
-            }
-   
-         $conn->close();
-?>
-
-    <form method="post">
+    <form method="post" action="user.php">
         <h1>Search For A Donor</h1>
-        <p>Prefix: <input type="text" name="Prefix"></p>
-        <p>First Name: <input type="text" name="First_Name"></p>
-        <p>Last Name: <input type="text" name="Last_Name"></p>
-        <p>Suffix <input type="text" name="Suffix"></p>
-        <p>PC Name: <input type="text" name="PC_Name"></p>
-
+        <p>Prefix: <input type="text" name="prefix"></p>
+        <p>First Name: <input type="text" name="first_name"></p>
+        <p>Last Name: <input type="text" name="last_name"></p>
+        <p>Suffix <input type="text" name="suffix"></p>
+        <p>PC Name: <input type="text" name="pc_name"></p>
         <p><input type="submit" name="submit" value="Search"></p>
     </form>
-    <!-- Include Script for PHP -->
+
+    <?php
+        //on click of submit
+        if(isset($_POST['submit'])){
+
+            // define the list of fields
+            $fields = array('donor_id', 'prefix', 'first_name', 'last_name', 'suffix', 'entry_date');
+            $conditions = array();
+        
+            // loop through the defined fields
+            foreach($fields as $field){
+                // if the field is set and not empty
+                if(isset($_POST[$field]) && $_POST[$field] != '') {
+                    // create a new condition while escaping the value inputed by the user (SQL Injection)
+                    $conditions[] = "$field = '$_POST[$field]'";
+                }
+            }
+        
+            // builds the query
+            $query = "SELECT * FROM donor ";
+            // if there are conditions defined
+            if(count($conditions) > 0) {
+                // append the conditions
+                $query .= "WHERE " . implode (' AND ', $conditions); // you can change to 'OR', but I suggest to apply the filters cumulative
+                echo $query;
+            }
+            $result = mysqli_query($mysql, $query);
+
+            while($row = mysqli_fetch_assoc($result)){
+            ?>
+            <h1>
+            <?php
+                echo $row['donor_id'];
+                echo $row['prefix'];
+                echo $row['first_name'];
+                echo $row['last_name'];
+                echo $row['suffix'];  
+            }
+            ?>
+            </h1>
+            <?php
+        }
+    ?>
 </body>
 
 </html>
