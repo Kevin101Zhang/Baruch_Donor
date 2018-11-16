@@ -40,17 +40,16 @@
         exit;
         }
     ?>
-
-    <form method="post" action="user.php">
-        <h1>Search For A Donor</h1>
-        <p>Prefix: <input type="text" name="prefix"></p>
-        <p>First Name: <input type="text" name="first_name"></p>
+   <form method="post" action="user.php">
+        <h3 class="center">Search For A Donor</h3>
+       <br>
+       <p>Prefix: <input type="text" name="prefix"></p>
+         <p>First Name: <input type="text" name="first_name"></p>
         <p>Last Name: <input type="text" name="last_name"></p>
-        <p>Suffix <input type="text" name="suffix"></p>
+        <p>Suffix: <input type="text" name="suffix"></p>
         <p>PC Name: <input type="text" name="pc_name"></p>
-        <p><input type="submit" name="submit" value="Search"></p>
-    </form>
-
+         <p><input type="submit" name="submit" value="Search"></p>
+ </form>
     <?php
         //on click of submit
         if(isset($_POST['submit'])){
@@ -69,29 +68,35 @@
             }
         
             // builds the query
-            $query = "SELECT * FROM donor ";
+            $donor_query = "SELECT * FROM donor ";
+            $pc_query = "SELECT computer.pc_id, donor.donor_id FROM computer INNER JOIN donor ON computer.donor_id_f = donor.donor_id";
             // if there are conditions defined
             if(count($conditions) > 0) {
                 // append the conditions
-                $query .= "WHERE " . implode (' AND ', $conditions); // you can change to 'OR', but I suggest to apply the filters cumulative
-                echo $query;
+                $donor_query .= "WHERE " . implode (' AND ', $conditions); 
+                echo $donor_query;
             }
-            $result = mysqli_query($mysql, $query);
+            
+            $donor_result = mysqli_query($mysql, $donor_query);
+            $pc_result = mysqli_query($mysql, $pc_query);
 
-            while($row = mysqli_fetch_assoc($result)){
+            while($donor_row = mysqli_fetch_assoc($donor_result) && $pc_row = mysqli_fetch_assoc($pc_result)){
+
             ?>
             <h1>
             <?php
-                echo $row['donor_id'];
-                echo $row['prefix'];
-                echo $row['first_name'];
-                echo $row['last_name'];
-                echo $row['suffix'];  
+                echo $donor_row['donor_id'];
+                echo $donor_row['prefix'];
+                echo $donor_row['first_name'];
+                echo $donor_row['last_name'];
+                echo $donor_row['suffix'];  
+                echo $pc_row['pc_id'];
             }
             ?>
             </h1>
             <?php
         }
+
     ?>
 </body>
 
