@@ -10,14 +10,12 @@
     <!-- Linking Reset -->
     <link rel="stylesheet" href="../Assets/CSS/reset.css" type="text/css">
     <!-- Linking CSS -->
-    <link rel="stylesheet" href="../Assets/CSS/admin.css" type="text/css">
- 
-    <!-- Jquery -->
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"> </script>
 
+    <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css">
+    <!-- Jquery -->
+    <script> src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- Linking JS -->
-    <script src="../assets/js/admin.js"></script>
+    <script src="../main.js"></script>
 
 </head>
 
@@ -33,8 +31,7 @@
         <h1>Add a User</h1>
         <p>Username: <input type="text" name="username"></p>
         <p>Password: <input type="text" name="password"></p>
-
-        <p><input type="submit" name="submit" value="Add User"></p>
+        <p><input id="submit" type="submit" name="submit" value="Add User"></p>
     </form>
 
 </body>
