@@ -47,7 +47,6 @@
         <p>First Name: <input type="text" name="first_name"></p>
         <p>Last Name: <input type="text" name="last_name"></p>
         <p>Suffix <input type="text" name="suffix"></p>
-        <p>PC Name: <input type="text" name="pc_name"></p>
         <p><input type="submit" name="submit" value="Search"></p>
     </form>
 
