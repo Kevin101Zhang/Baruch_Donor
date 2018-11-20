@@ -15,6 +15,7 @@
 <body>
   <form method="post" action="index.php">
     <h1>Please Log In</h1>
+    <br>
     <p>Username: <input type="text" name="username"></p>
     <p>Password: <input type="password" name="password"></p>
     <p><input type="submit" name="submit" value="Log In"></p>
