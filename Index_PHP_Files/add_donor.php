@@ -14,7 +14,13 @@
  
     <!-- Jquery -->
     <script
-  src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"> </script>
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+  
+
+
+  </script>
 
     <!-- Linking JS -->
     <script src="../assets/js/admin.js"></script>
@@ -30,12 +36,20 @@
 </div>
 
     <form method="post">
-        <h1>Add a User</h1>
-        <p>Username: <input type="text" name="username"></p>
-        <p>Password: <input type="text" name="password"></p>
-
-        <p><input type="submit" name="submit" value="Add User"></p>
+        <h1>Add A Donor</h1>
+        <p>Prefix: <input id="prefix" type="text" name="Prefix"></p>
+        <p>First Name: <input id="firstName" type="text" name="First_Name"></p>
+        <p>Last Name: <input id="lastName" type="text" name="Last_Name"></p>
+        <p>Suffix <input id="suffix" type="text" name="Suffix"></p>
+        <p>PC Name: <input type="text" name="PC_Name"></p>
+        <!-- <div class="testing">Hello</div> -->
+        <input id="submit" type="submit" name="submit" value="Add User">
     </form>
+<?php
+
+$add_donor_query = "INSERT INTO donor('$prefix','$prefix','$first_name','$last_name','$suffix','$pc_id')"
+
+?>
 
 </body>
 
