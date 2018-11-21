@@ -7,52 +7,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Search For Donors</title>
-    <!-- Latest compiled and minified Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- Linking Reset -->
     <link rel="stylesheet" href="../Assets/CSS/reset.css" type="text/css">
     <!-- Linking CSS -->
     <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css">
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
-
 </head>
 
 <body>
-    <?php
-        $host = "localhost";
-        $host_user = "root";
-        $host_pass = "B@ruch123";
-        $database = "baruch_donor";
-        $port = "3306";
-        
-        // connect to mysql
-        $mysql = mysqli_connect($host, $host_user, $host_pass);
-        if(!$mysql) {
-        echo "Cannot connect to database.";
-        exit;
-        }
+    <!-- $add_donor_query = "INSERT INTO donor('$prefix','$first_name','$last_name','$suffix','$pc_id')" -->
+    <div class="container">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#search_donor">Search for a donor</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#add_donor">Add Donor</a>
+            </li>
+        </ul>
 
-        // select the appropriate database
-        $selected = mysqli_select_db($mysql, $database);
-        if(!$selected) {
-        echo "Cannot select database.";
-        exit;
-        }
-    ?>
-
-    <form method="post" action="user.php">
-        <h1>Search For A Donor</h1>
-        <p>Prefix: <input type="text" name="prefix"></p>
-        <p>First Name: <input type="text" name="first_name"></p>
-        <p>Last Name: <input type="text" name="last_name"></p>
-        <p>Suffix <input type="text" name="suffix"></p>
-        <p><input type="submit" name="submit" value="Search"></p>
-    </form>
-
+        <!-- Tab panes -->
+        <div class="tab-content" id="form_container">
+            <div id="search_donor" class="container tab-pane active"><br>
+                <form method="post" action="user.php">
+                    <p>Prefix: <input type="text" name="prefix"></p>
+                    <p>First Name: <input type="text" name="first_name"></p>
+                    <p>Last Name: <input type="text" name="last_name"></p>
+                    <p>Suffix: <input type="text" name="suffix"></p>
+                    <p><input type="submit" name="submit" value="Search"></p>
+                </form>
+            </div>
+            <div id="add_donor" class="container tab-pane fade"><br>
+                <form method="post" action="user.php">
+                    <p>Prefix: <input type="text" name="prefix"></p>
+                    <p>First Name: <input type="text" name="first_name"></p>
+                    <p>Last Name: <input type="text" name="last_name"></p>
+                    <p>Suffix: <input type="text" name="suffix"></p>
+                    <p>PC Name: <input type="text" name="pc_name"></p>
+                    <p><input type="submit" name="submit" value="Search"></p>
+                </form>
+            </div>
+        </div>
+    </div>
     <?php
         //on click of submit
         if(isset($_POST['submit'])){
+            require_once('../assets/php/connection.php'); //establishes connection to the database
             // define the list of fields
             $fields = array('donor_id', 'prefix', 'first_name', 'last_name', 'suffix', 'entry_date');
             $conditions = array();

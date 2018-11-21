@@ -5,15 +5,19 @@ body {
     font-family: sans-serif;
   }
    
-form {
+  #form_container{
     background-color: #fff;
-    padding: 2em 2em 2em;
-    max-width: 30%;
-    margin: 100px auto 0;
+    padding: 2em 2em 2em; 
+    max-width: 30%; 
+     margin: 0 auto 10px;
     box-shadow: 0 0 1em #222;
-    border-radius: 5px;
+    border-radius: 5px; 
   }
-  
+  .nav-tabs{
+    max-width:30%;
+    margin: 5% auto 0;
+    border-bottom: none;
+  }
   p {
     margin: 0 0 1em 0;
     position: relative;
@@ -58,3 +62,5 @@ form {
   .center{
     text-align: center;
   }
+
+ 

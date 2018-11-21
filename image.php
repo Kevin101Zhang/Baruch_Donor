@@ -6,6 +6,8 @@
 </head>
 <body>
     <?php
+        $folder = date("Ymd");
+        mkdir ($folder, 0755);
         $url_to_image = 'https://www.gstatic.com/webp/gallery3/1.png';
         $my_save_dir = '';
         $filename = basename($url_to_image);

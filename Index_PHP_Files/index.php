@@ -24,27 +24,7 @@
  <?php
   if(isset($_POST['submit'])){
     
-    $host = "localhost";
-    $host_user = "root";
-    $host_pass = "B@ruch123";
-    $database = "baruch_donor";
-    $table = "credentials";
-    $port = "3306";
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    // connect to mysql
-    $mysql = mysqli_connect($host, $host_user, $host_pass);
-
-    if(!$mysql) {
-      echo "Cannot connect to database.";
-      exit;
-    }
-    // select the appropriate database
-    $selected = mysqli_select_db($mysql, $database);
-    if(!$selected) {
-      echo "Cannot select database.";
-      exit;
-    }
+    require_once('../assets/php/connection.php');  
 
     //query the database for username and password
     $query_user = "select username FROM $table WHERE username = '$username' ";
@@ -56,11 +36,11 @@
     //check if there is a matching result
     if (mysqli_num_rows($password_result)>0 && mysqli_num_rows($user_result)>0) {
       // visitor's name and password combination are user credentials
-      echo "<script> location.href='user.php'; </script>"; 
+      echo "<script> location.href='search_donor.php'; </script>"; 
       exit; 
     } elseif ($username == "bctcproject" && $password == "B@ruch123"){
       // visitor's name and password combination are admin credentials
-      echo "<script> location.href='admin.php'; </script>";
+      echo "<script> location.href='add_user.php'; </script>";
       exit; 
     } 
   } 
