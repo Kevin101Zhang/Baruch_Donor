@@ -1,0 +1,13 @@
+$_SESSION['authorized'] = TRUE;
+...and on other pages just check if user is authorized:
+
+if (isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE) {
+    // Alright, let's show all the hidden functionality!
+    echo "Psst! Hey! Wanna buy some weed?";
+} else {
+    // User is not authorized!
+    header('Location: login.php');
+    exit();
+}
+
+https://stackoverflow.com/questions/29098142/how-to-prevent-user-from-bypassing-php-authentication
