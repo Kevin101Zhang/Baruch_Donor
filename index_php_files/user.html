@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../Assets/CSS/reset.css" type="text/css">
     <!-- Linking CSS -->
     <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css">
+    <!-- Linking js -->
+    <script defer src="../Assets/js/admin.js"></script>
 </head>
 
 <body>
@@ -52,21 +54,21 @@
             <div id="add_donor" class="container tab-pane fade"><br>
                 <form method="post" action="../result_php_files/add_donor_result.php">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Prefix" name="prefix">
+                        <input type="text" class="form-control prefix" placeholder="Prefix" name="prefix">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="First Name" name="first_name" required>
+                        <input type="text" class="form-control first_name" placeholder="First Name" name="first_name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Last Name" name="last_name" required>
+                        <input type="text" class="form-control last_name" placeholder="Last Name" name="last_name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Suffix" name="suffix">
+                        <input type="text" class="form-control suffix" placeholder="Suffix" name="suffix">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="PC Name" name="pc_name" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" name="submit_add_donor">Add</button>
+                    <button id="submit" type="submit" class="btn btn-primary" name="submit_add_donor">Add</button>
                 </form>
             </div>
         </div>

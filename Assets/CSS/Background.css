@@ -1,0 +1,21 @@
+#background-pic{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../Images/Wallpaper.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.col-8{
+text-align: center;
+} 
+#start{
+    height: 77vh;
+}
+#center{
+    height: 10vh;
+}
+#end{
+    height: 13vh;
+}
+

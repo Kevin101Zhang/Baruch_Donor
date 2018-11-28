@@ -18,31 +18,50 @@
 </head>
 
 <body>
-    <h1>
-    Successfully added
+    <div class="container">
+        <div class="jumbotron">
+            <?php
+                //on click of search_donor button
+                if(isset($_POST['submit_add_user'])){
+                    require_once('../assets/php/connection.php'); //establishes connection to the database
+                    
+                    $username = $_POST["username"];
+                    $password = $_POST["password"];
 
-    username:
-    <?php
-    echo $_POST["username"];
-    echo " and ";
-    echo "password: ";
-    echo $_POST["password"];
-    ?>
-    as a user.
-    </h1>
-<div class="container">
+                    $existing_user = "SELECT * FROM credentials WHERE username = '$username'";
+                    //if no results are returned
+                    if (mysqli_num_rows(mysqli_query($mysql, $existing_user)) == 0){ 
+            ?>
+                        <div class="alert alert-success">
+                            <p>Sucessfully added</p>
+                            <strong>
+                                <?php
+                                    echo $_POST["username"];
+                                    $add_user_query = "INSERT INTO credentials(username, password) VALUES('$username', '$password')"; //builds the query for adding a user
+                                    mysqli_query($mysql, $add_user_query);
+                                ?>
+                            </strong>
+                            <p>as a user</p>  
+                        </div>
+                <?php
+                    }
+                    else{          
+                ?>
+                       <div class="alert alert-danger">
+                            <?php
+                                echo $_POST["username"];
+                            ?>
+                            <strong>
+                                already exists.
+                            </strong>
+                        </div> 
+                    <?php
+                        }
+
+                }
+                    ?>
+        </div>
     <div>
-    <?php
-        //on click of search_donor button
-        if(isset($_POST['submit_add_user'])){
-            require_once('../assets/php/connection.php'); //establishes connection to the database
-
-            $username = $_POST["username"];
-            $password = $_POST["password"];
-            $add_user_query = "INSERT INTO credentials(username, password) VALUES('$username', '$password')"; //builds the query for adding a user
-            mysqli_query($mysql, $add_user_query);
-        }
-    ?>
 </body>
 
 </html>
