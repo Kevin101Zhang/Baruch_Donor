@@ -24,7 +24,7 @@
         if(isset($_POST['submit_add_donor'])){
             require_once('../assets/php/connection.php'); //establishes connection to the database
     ?>     
-            <div class="container">
+            <div class="container box">
                 <div class="jumbotron">
                     <?php
                         // sets the form inputs as variables
@@ -94,7 +94,7 @@
                                     echo " ";
                                     echo $_POST["suffix"]; 
                                 ?>
-                                <strong>is already an existing donor.</strong>
+                                <strong>is already an existing donor. Please use the search tab to assign the donor to a different PC.</strong>
                             </div>
                     <?php
                         } //closing for else
