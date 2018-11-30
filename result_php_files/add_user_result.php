@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container box">
         <div class="jumbotron">
             <?php
                 //on click of search_donor button
@@ -60,6 +60,7 @@
 
                 }
                     ?>
+            <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/admin.html'">Return</button>
         </div>
     <div>
 </body>
