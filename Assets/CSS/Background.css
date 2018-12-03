@@ -6,16 +6,18 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
 .col-8{
 text-align: center;
 } 
 #start{
-    height: 77vh;
+    height: 77%;
 }
 #center{
-    height: 10vh;
+    height: 10%;
 }
 #end{
-    height: 13vh;
+    height: 13%;
 }
 

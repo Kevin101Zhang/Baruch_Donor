@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +18,8 @@
     <link rel="stylesheet" href="../Assets/CSS/reset.css" type="text/css">
     <!-- Linking CSS -->
     <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css">
+    <!-- Linking js -->
+    <script defer src="../Assets/js/admin.js"></script>
 </head>
 
 <body>
@@ -98,16 +103,24 @@
                             </div>
                     <?php
                         } //closing for else
+                        if ($_SESSION['user'] == 1){
                     ?>
                     <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.html'">Return</button>
-                    <button id="background" type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/background.html'">Preview background</button>
+                    <?php
+                        }
+                        elseif($_SESSION['user'] == 2){
+                    ?>
+                    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/admin.html'">Return</button>
+                    <?php
+                        }
+                    ?>
+                    <button id="background" type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/background.php'">Preview background</button>
                 </div>  <!--closing for jumbotron-->
             </div> <!--closing for container-->
     <?php
         }//closing for ifset
     ?>
     
-        
 </body>
 
 </html>

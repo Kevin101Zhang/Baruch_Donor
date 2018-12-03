@@ -14,4 +14,12 @@ body {
   margin-top: 15vh;
 }
 
+@media (min-width: 576px){
+    .jumbotron {
+      padding: none;
+  }
+
+}
+
+
  
