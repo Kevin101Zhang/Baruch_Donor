@@ -21,13 +21,41 @@
    
     <div class="col-8">
     <div id="start"></div>
-    <div id="center"><h2 id="name_here"></h2></div>
+
+    <div id="center"><h2 id="name_here"></h2>
+
+
+</div>
     <div id="end"></div>
     </div>
     
     <div class="col-2"></div>
 
 </div>
+<?php
+    require_once('../assets/php/connection.php'); //establishes connection to the database
+    $latest_query = "SELECT * FROM donor ORDER BY donor_id DESC LIMIT 1";
+   
+    $latest_result = mysqli_query($mysql, $latest_query);
 
+
+    while($donor_row = mysqli_fetch_assoc($latest_result)){
+        $prefix = $donor_row['prefix'];
+        $first_name = $donor_row['first_name'];
+        $last_name = $donor_row['last_name'];
+        $suffix = $donor_row['suffix'];
+?>
+  <script>
+          $("#name_here").html("<?php 
+            echo $prefix;
+            echo " ";
+            echo $first_name;
+            echo " ";
+            echo $last_name;
+            echo " ";
+            echo $suffix;  
+    }
+?>");
+    </script>
 </body>
 </html>
