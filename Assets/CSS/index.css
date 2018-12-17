@@ -8,17 +8,31 @@ body {
   height: 100%;
   width:100%;
 }
-   
-.box {
+
+.box{
   position: relative;
   margin-top: 15vh;
 }
 
-@media (min-width: 576px){
-    .jumbotron {
-      padding: none;
-  }
+#background_pic{
+  height: 1080px;
+  width: 1920px;
+  background-image: url("../Images/Wallpaper.png");
+  background-size: 100% 100%;
+  /* background-size:cover; */
+}
 
+.col-8{
+text-align: center;
+} 
+#start{
+  height: 77%;
+}
+#center{
+  height: 10%;
+}
+#end{
+  height: 13%;
 }
 
 
