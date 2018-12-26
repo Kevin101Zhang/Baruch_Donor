@@ -31,7 +31,6 @@
         $pc_name = $_SESSION['pc_name'];
 
         //add donor to database
-
         $add_donor_query = "INSERT INTO donor(prefix,first_name,last_name,suffix) VALUES('$prefix','$first_name','$last_name','$suffix')"; //builds the query for adding a donor
         mysqli_query($mysql, $add_donor_query); //runs the add_donor_query
 
@@ -54,6 +53,7 @@
         
             if (file_put_contents($file, $data)) {
     ?>
+                <br>
                 <div class="alert alert-success" id="success">
                     Sucessfully added
                     <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?></strong>
@@ -67,16 +67,16 @@
         }
 
     ?>
-    <?php
-    if(stristr($_SERVER['HTTP_REFERER'],"preview.php")){
+    <?php if(isset($_SESSION['admin'])){
     ?>
-    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.php'">Return</button>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/admin.php'">Return</button>
         <?php
     }else{?>
-    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/admin.html'">Return</button>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.php'">Return</button>
     <?php
-    }
+    }  
     ?>
+    
 </body>
 
 </html>

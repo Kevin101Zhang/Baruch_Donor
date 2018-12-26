@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['admin'])){
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,3 +110,8 @@
 </body>
 
 </html>
+<?php
+}else{
+    header("Location:index.html");
+}
+?>

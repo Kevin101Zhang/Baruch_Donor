@@ -1,5 +1,6 @@
 <?php
-if(stristr($_SERVER['HTTP_REFERER'],"login.php","../result_php_files/preview.php")){
+session_start();
+if(isset($_SESSION['login'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +87,7 @@ if(stristr($_SERVER['HTTP_REFERER'],"login.php","../result_php_files/preview.php
 </body>
 
 </html>
-<?php 
+<?php
 }else{
     header("Location:index.html");
 }

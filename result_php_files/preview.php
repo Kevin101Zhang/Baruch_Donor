@@ -1,9 +1,3 @@
-<?php
-        //on click of add_donor button
-        if(isset($_POST['submit_add_donor'])){
-            require_once('../assets/php/connection.php'); //establishes connection to the database
-            session_start();
-?>   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,27 +14,37 @@
     <!-- <link rel="stylesheet" href="../Assets/CSS/reset.css" type="text/css"> -->
     <!-- Linking CSS -->
     <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css">
-    
-    
+    <link rel="stylesheet" href="../Assets/CSS/preview.css" type="text/css">
 </head>
 
 <body>  
-            <div class="container-fluid box">
-                <div class="jumbotron">
-                    <div class="row container-fluid" id="background_pic">      
-                        <div class="col-2"></div>
+    <?php
+        //on click of add_donor button
+        if(isset($_POST['submit_add_donor'])){
+            require_once('../assets/php/connection.php'); //establishes connection to the database
+            session_start();
+    ?>     
+            <img id="cover" src="../assets/images/login-bg.jpg" >
+            
+            <div id="wrapper">
 
-                        <div class="col-8">
-                            <div id="start"></div>
+                <div class="row" id="background_pic">      
+                    <div class="col-2"></div>
 
-                            <div id="center"><h2 id="name_here"></h2></div>
+                    <div class="col-8">
+                        <div id="start"></div>
 
-                            <div id="end"></div>
-                        </div>
+                        <div id="center"><h2 id="name_here"></h2></div>
 
-                        <div class="col-2"></div>
+                        <div id="end"></div>
                     </div>
 
+                    <div class="col-2"></div>
+                </div>
+
+                <div class="jumbotron">
+
+                    <canvas id="preview_canvas" width="950px" height="550px"></canvas> <!-- actual preview -->
                     <?php
                         // sets the form inputs as variables
                         $prefix = $_POST["prefix"];
@@ -55,47 +59,54 @@
                         $_SESSION['suffix'] = $suffix;
                         $_SESSION['pc_name'] = $pc_name;
 
-                        $existing_donor = "SELECT * FROM donor WHERE first_name = '$first_name' AND last_name = '$last_name'";
+                        $existing_donor = "SELECT first_name, last_name FROM donor WHERE first_name = '$first_name' AND last_name = '$last_name'";
                         //there is a matching result
                         if (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0){ 
-                    ?>
+                    ?> 
+
                             <div class="alert alert-danger">
                                 <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?> </strong>
                                 is already an existing donor. Do you want to override the existing donor with the new PC?
                             </div>
                             <form method="post" action="add_donor_result.php">
                                 <input id="input_img" name="img" type="hidden" value="">
-                                <input id="" type="submit" value="Confirm" class="btn btn-primary">
+                                <input type="submit" value="Confirm" class="btn btn-primary">
                             </form>
                     <?php
                         }else{ //there are NO matching results
                     ?>
+                            <br>
                             <form method="post" action="add_donor_result.php">
                                 <input id="input_img" name="img" type="hidden" value="">
                                 <input id="" type="submit" value="Confirm" class="btn btn-primary">
                             </form>  
 
                         <?php } //closing for else ?>
-                        <button type="submit" class="btn btn-primary" onclick="window.history.back();">Return</button>
+                    <button type="submit" class="btn btn-primary" onclick="window.history.back();">Return</button>
                 </div>  <!-- closing for jumbotron -->
-            </div> <!-- closing for container -->
-    <?php }//closing for ifset ?>
 
+            </div> <!-- closing for wrapper -->
+
+    <?php }//closing for ifset ?>
+    
     <script>
         $("#name_here").html("<?php echo $prefix." ".$first_name." ".$last_name." ".$suffix;; ?>");
         html2canvas(document.querySelector("#background_pic")).then(canvas => {
             document.body.appendChild(canvas);
             document.getElementById('input_img').value = canvas.toDataURL();
             canvas.style.display="none";
+
+            //draw smaller canvas
+            var preview_canvas = document.getElementById("preview_canvas");
+            var ctx = preview_canvas.getContext("2d");
+            ctx.scale(.5, .5);
+            ctx.drawImage(canvas, 0, 0);
         });
-    
-    if ( window.history.replaceState ) {
-        window.history.replaceState( {} , 'foo', '../index_php_files/user.php' );
-    }
-    
+
+    // if ( window.history.replaceState ) {
+    //     window.history.replaceState( {} , 'foo', '../index_php_files/user.php' );
+    // }  
     </script>
-
-
 </body>
 
 </html>

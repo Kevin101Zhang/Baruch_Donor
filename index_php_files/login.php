@@ -16,10 +16,11 @@
   <?php 
     
     if(isset($_POST['submit_login'])){
+      session_start();
       require_once('../assets/php/connection.php');  
       $username = $_POST["username"];
       $password = $_POST["password"];
-      $_SESSION['user']=$username;
+      $_SESSION['login'] = $username;
       $table = "credentials";
 
       //query the database for username and password
@@ -36,7 +37,9 @@
         exit; 
       } elseif ($username == "bctcproject" && $password == "B@ruch123"){
         // visitor's name and password combination are admin credentials
-        echo "<script> location.href='admin.html'; </script>";
+        $username = "bctcproject";
+        $_SESSION['admin'] = $username;
+        echo "<script> location.href='admin.php'; </script>";
         exit; 
       } 
     } 
