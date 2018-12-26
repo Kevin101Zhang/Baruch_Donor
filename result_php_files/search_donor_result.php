@@ -19,10 +19,14 @@
 
 <body>
     <?php
+        require_once('../assets/php/connection.php'); //establishes connection to the database
+
+        if(isset($_POST['1'])) {
+            $delete_query = "DELETE FROM donor WHERE donor_id = 6 ";
+            mysqli_query($mysql, $delete_query);
+        }
         //on click of search_donor button
         if(isset($_POST['submit_search_donor'])){
-            require_once('../assets/php/connection.php'); //establishes connection to the database
-
             // define the list of fields
             $fields = array('donor_id', 'prefix', 'first_name', 'last_name', 'suffix', 'entry_date');
             $conditions = array();
@@ -49,6 +53,7 @@
                         <table class="table table-striped" id="donor_table">
                             <thead>
                             <tr>
+                                <th></th>
                                 <th>Donor ID</th>
                                 <th>Prefix</th>
                                 <th>First Name</th>
@@ -63,6 +68,9 @@
                             </tbody>
                         </table>
                         </div>
+                        <script>
+                            var row_count = 0;
+                        </script>
 
                             <?php
                                 while($donor_row = mysqli_fetch_assoc($donor_result)){
@@ -78,13 +86,15 @@
                                     <script>
                                         var table = document.getElementById("donor_table");
                                         var row = table.insertRow(-1);
-                                        var donor_id_cell = row.insertCell(0);
-                                        var prefix_cell = row.insertCell(1);
-                                        var first_name_cell = row.insertCell(2);
-                                        var last_name_cell = row.insertCell(3);
-                                        var suffix_cell = row.insertCell(4);
-                                        var entry_date_cell = row.insertCell(5);
-
+                                        var delete_cell = row.insertCell(0);
+                                        var donor_id_cell = row.insertCell(1);
+                                        var prefix_cell = row.insertCell(2);
+                                        var first_name_cell = row.insertCell(3);
+                                        var last_name_cell = row.insertCell(4);
+                                        var suffix_cell = row.insertCell(5);
+                                        var entry_date_cell = row.insertCell(6);
+                                        
+                                        delete_cell.innerHTML = '<form method="post" action="search_donor_result.php"> <input class="btn btn-default btn-sm" type="submit" name="' + row_count + '" value="Delete"> </form>'
                                         donor_id_cell.innerHTML = "<?php echo $donor_id ?>";
                                         prefix_cell.innerHTML = "<?php echo $prefix ?>";
                                         first_name_cell.innerHTML = "<?php echo $first_name ?>";
@@ -99,19 +109,27 @@
                                         $pc_id = $pc_row['pc_id'];
                             ?>
                                         <script>
-                                            var pc_id_cell = row.insertCell(6);
-                                            pc_id_cell.innerHTML = "<?php echo $pc_id ?>";
+                                            var pc_id_cell = row.insertCell(7);
+                                            pc_id_cell.innerHTML = "<?php echo $pc_id ?>"; 
                                         </script>
                             <?php
                                     }
+                            ?>
+                                    <script>row_count++;</script>
+                            <?php
                                 }
         }
                             ?>
                             <br>
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.html'">Return</button>
+                    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.php'">Return</button>
                 </div>  
             </div>
+    
+    <script>
+        var find_cell = document.getElementById("donor_table").rows[row_count].cells[1].innerHTML;
+        console.log(find_cell);
+    </script>
 </body>
 
 </html>

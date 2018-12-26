@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['login'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,5 +87,10 @@
 </body>
 
 </html>
+<?php
+}else{
+    header("Location:index.html");
+}
+?>
 
 <!-- "../result_php_files/add_donor_result.php" -->
