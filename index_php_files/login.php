@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +19,7 @@ session_start();
       require_once('../assets/php/connection.php');  
       $username = $_POST["username"];
       $password = $_POST["password"];
+      $_SESSION['user']=$username;
       $table = "credentials";
 
       //query the database for username and password
@@ -34,11 +32,9 @@ session_start();
       //check if there is a matching result
       if (mysqli_num_rows($password_result)>0 && mysqli_num_rows($user_result)>0) {
         // visitor's name and password combination are user credentials
-        $_SESSION['user'] == 1;
-        echo "<script> location.href='user.html'; </script>"; 
+        echo "<script> location.href='user.php'; </script>"; 
         exit; 
       } elseif ($username == "bctcproject" && $password == "B@ruch123"){
-        $_SESSION['user'] == 2;
         // visitor's name and password combination are admin credentials
         echo "<script> location.href='admin.html'; </script>";
         exit; 

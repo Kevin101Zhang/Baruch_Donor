@@ -109,7 +109,7 @@
                             ?>
                             <br>
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.html'">Return</button>
+                    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.php'">Return</button>
                 </div>  
             </div>
 </body>

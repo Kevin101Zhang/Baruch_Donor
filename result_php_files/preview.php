@@ -1,3 +1,9 @@
+<?php
+        //on click of add_donor button
+        if(isset($_POST['submit_add_donor'])){
+            require_once('../assets/php/connection.php'); //establishes connection to the database
+            session_start();
+?>   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,14 +24,7 @@
     
 </head>
 
-<body>
-    
-    <?php
-        //on click of add_donor button
-        if(isset($_POST['submit_add_donor'])){
-            require_once('../assets/php/connection.php'); //establishes connection to the database
-            session_start();
-    ?>     
+<body>  
             <div class="container-fluid box">
                 <div class="jumbotron">
                     <div class="row container-fluid" id="background_pic">      
@@ -66,7 +65,7 @@
                             </div>
                             <form method="post" action="add_donor_result.php">
                                 <input id="input_img" name="img" type="hidden" value="">
-                                <input id="" type="submit" value="$prefix" class="btn btn-primary">
+                                <input id="" type="submit" value="Confirm" class="btn btn-primary">
                             </form>
                     <?php
                         }else{ //there are NO matching results
@@ -89,6 +88,11 @@
             document.getElementById('input_img').value = canvas.toDataURL();
             canvas.style.display="none";
         });
+    
+    if ( window.history.replaceState ) {
+        window.history.replaceState( {} , 'foo', '../index_php_files/user.php' );
+    }
+    
     </script>
 
 

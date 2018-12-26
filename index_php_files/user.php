@@ -1,3 +1,6 @@
+<?php
+if(stristr($_SERVER['HTTP_REFERER'],"login.php","../result_php_files/preview.php")){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,5 +86,10 @@
 </body>
 
 </html>
+<?php 
+}else{
+    header("Location:index.html");
+}
+?>
 
 <!-- "../result_php_files/add_donor_result.php" -->

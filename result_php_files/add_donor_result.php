@@ -22,8 +22,8 @@
 
     <?php
         require_once('../assets/php/connection.php'); //establishes connection to the database
+       
         session_start();
-
         $prefix = $_SESSION['prefix'];
         $first_name = $_SESSION['first_name'];
         $last_name = $_SESSION['last_name'];
@@ -67,7 +67,16 @@
         }
 
     ?>
-
+    <?php
+    if(stristr($_SERVER['HTTP_REFERER'],"preview.php")){
+    ?>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.php'">Return</button>
+        <?php
+    }else{?>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/admin.html'">Return</button>
+    <?php
+    }
+    ?>
 </body>
 
 </html>
