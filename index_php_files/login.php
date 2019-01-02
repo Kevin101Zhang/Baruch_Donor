@@ -5,11 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-     <!-- Linking Reset -->
-     <link rel="stylesheet" href="../Assets/CSS/reset.css" type="text/css">
-     <!-- Linking CSS -->
-     <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css"> 
+  <title>Login</title>
+  <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css"> 
 </head>
 
 <body>
@@ -20,7 +17,7 @@
       require_once('../assets/php/connection.php');  
       $username = $_POST["username"];
       $password = $_POST["password"];
-      $_SESSION['login'] = $username;
+      
       $table = "credentials";
 
       //query the database for username and password
@@ -33,12 +30,13 @@
       //check if there is a matching result
       if (mysqli_num_rows($password_result)>0 && mysqli_num_rows($user_result)>0) {
         // visitor's name and password combination are user credentials
+        $_SESSION['login'] = "user";
+
         echo "<script> location.href='user.php'; </script>"; 
         exit; 
       } elseif ($username == "bctcproject" && $password == "B@ruch123"){
         // visitor's name and password combination are admin credentials
-        $username = "bctcproject";
-        $_SESSION['admin'] = $username;
+        $_SESSION['login'] = "admin";
         echo "<script> location.href='admin.php'; </script>";
         exit; 
       } 
