@@ -35,5 +35,23 @@ text-align: center;
   height: 13%;
 }
 
+.delete_button {
+  background: transparent;
+  border: 1px solid #f00;
+  border-radius: 2em;
+  color: #f00;
+  display: inline;
+  font-size: 12px;
+  height: 20px;
+  line-height: 2px;
+  margin: 0 0 8px;
+  padding: 0;
+  text-align: center;
+  width: 20px;
+  }
+
+  form{
+    display:inline;
+  }
 
  
