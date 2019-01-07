@@ -38,7 +38,7 @@
                         <div class="col-8">
                             <div id="start"></div>
 
-                            <div id="center"><h2 id="name_here"></h2></div>
+                            <div id="center"><strong><h2 id="name_here"></h2></strong></div>
 
                             <div id="end"></div>
                         </div>

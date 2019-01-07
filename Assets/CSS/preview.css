@@ -39,3 +39,13 @@ body{
 form{
     display:inline;
 }
+
+@font-face{
+    font-family: testFont;
+    src:url(../font/FuturaStd-Heavy.otf);
+}
+
+#name_here{
+    font-family: testFont;
+    color: #59595c;
+}

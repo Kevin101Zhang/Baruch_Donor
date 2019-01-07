@@ -1,3 +1,9 @@
+<?php
+require_once('../assets/php/connection.php'); //establishes connection to the database
+    // session_start();
+    $login = $_SESSION['login'];
+    if(isset($login)){
+?>
 <div class="container box">
     <div class="jumbotron">
         <div class="alert alert-success">
@@ -68,8 +74,24 @@
                         }
                     }
                 ?>
+                </div>
                 <br>
-                            </div>
-                            <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.php'">Return</button>
-                        </div>  
-                    </div>
+                <?php 
+                        if($login == 'admin'){
+                ?>
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/admin.php'">Return</button>
+                <?php
+                        }elseif($login == 'user'){
+                ?>
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='../index_php_files/user.php'">Return</button>
+                <?php
+                }  
+                ?>
+                            
+    </div>  
+</div>
+<?php
+}else{
+header("Location:../index_php_files/index.html");
+}
+?>
