@@ -19,7 +19,6 @@ body {
   width: 1920px;
   background-image: url("../Images/Wallpaper.png");
   background-size: 100% 100%;
-  /* background-size:cover; */
 }
 
 .col-8{
@@ -54,4 +53,9 @@ text-align: center;
     display:inline;
   }
 
- 
+  .center_button{
+    text-align:center;
+    display: block;
+  }
+
+

@@ -8,14 +8,12 @@
     // connect to mysql
     $mysql = mysqli_connect($host, $host_user, $host_pass);
     if(!$mysql) {
-    echo "Cannot connect to database.";
-    exit;
+        die("Cannot connect to database.");
     }
 
     // select the appropriate database
     $selected = mysqli_select_db($mysql, $database);
     if(!$selected) {
-    echo "Cannot select database.";
-    exit;
+        die("Cannot select database.");
     }
 ?>

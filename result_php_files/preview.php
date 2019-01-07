@@ -64,17 +64,15 @@
                             $_SESSION['pc_name'] = $pc_name;
 
                             $existing_donor = "SELECT prefix, first_name, last_name, suffix FROM donor WHERE prefix = '$prefix' AND first_name = '$first_name' AND last_name = '$last_name' AND suffix = '$suffix'";
-                            //there is a matching result
-                            if (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0){ 
+                            if (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0){ //there is a matching result
                         ?> 
-
                                 <div class="alert alert-danger">
                                     <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?> </strong>
                                     is already an existing donor. Do you want to add a PC to the existing donor?
                                 </div>
                                 <form method="post" action="add_donor_result.php">
                                     <input id="input_img" name="img" type="hidden" value="">
-                                    <input type="submit" value="Confirm" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" name="confirm_add_pc">Confirm</button>
                                 </form>
                         <?php
                             }else{ //there are NO matching results
@@ -82,11 +80,11 @@
                                 <br>
                                 <form method="post" action="add_donor_result.php">
                                     <input id="input_img" name="img" type="hidden" value="">
-                                    <input id="" type="submit" value="Confirm" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" name="confirm_new_donor">Confirm</button>
                                 </form>  
 
                             <?php } //closing for else ?>
-                        <button type="submit" class="btn btn-primary" onclick="window.history.back();">Return</button>
+                        <button type="submit" class="btn btn-danger" onclick="window.history.back();">Return</button>
                     </div>  <!-- closing for jumbotron -->
 
                 </div> <!-- closing for wrapper -->
@@ -106,10 +104,6 @@
                 ctx.scale(.5, .5);
                 ctx.drawImage(canvas, 0, 0);
             });
-
-        // if ( window.history.replaceState ) {
-        //     window.history.replaceState( {} , 'foo', '../index_php_files/user.php' );
-        // }  
         </script>
     </body>
 
