@@ -64,7 +64,9 @@
                             $_SESSION['pc_name'] = $pc_name;
 
                             $existing_donor = "SELECT prefix, first_name, last_name, suffix FROM donor WHERE prefix = '$prefix' AND first_name = '$first_name' AND last_name = '$last_name' AND suffix = '$suffix'";
-                            if (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0){ //there is a matching result
+                            $existing_pc = "SELECT pc_id FROM computer WHERE '$pc_name' = pc_id";
+                            //donor already exists
+                            if (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0){ 
                         ?> 
                                 <div class="alert alert-danger">
                                     <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?> </strong>
@@ -75,7 +77,25 @@
                                     <button type="submit" class="btn btn-primary" name="confirm_add_pc">Confirm</button>
                                 </form>
                         <?php
-                            }else{ //there are NO matching results
+                            //user is adding a donor to a preoccupied PC
+                            }
+                            /////////////////////////////////////////testing///////////////////////////////////////////////////////////////////////
+                            elseif (mysqli_num_rows(mysqli_query($mysql, $existing_pc)) > 0){
+                        ?>
+                                <div class="alert alert-danger">
+                                    Another donor is already assigned to PC: 
+                                    <strong> <?php echo $pc_name; ?> </strong>.
+                                    Would you like to overwrite the current donor this computer with the new donor? 
+                                </div>
+                                <form method="post" action="add_donor_result.php">
+                                    <input id="input_img" name="img" type="hidden" value="">
+                                    <button type="submit" class="btn btn-primary" name="confirm_overwrite">Confirm</button>
+                                </form>  
+                                <!-- /////////////////////////////////////////testing/////////////////////////////////////////////////////////////////////// -->
+                        <?php
+                            }
+                            //There are NO matching results. User can add this new donor.
+                            else{ 
                         ?>
                                 <br>
                                 <form method="post" action="add_donor_result.php">
@@ -104,12 +124,15 @@
                 ctx.scale(.5, .5);
                 ctx.drawImage(canvas, 0, 0);
             });
+        //     if ( window.history.replaceState ) {
+        //     window.history.replaceState( {} , 'foo', '../index_php_files/index.php' );
+        // }  
         </script>
     </body>
 
     </html>
 <?php
     }else{
-        header("Location:../index_php_files/index.html");
+        header("Location:../index_php_files/index.php");
     }
 ?>

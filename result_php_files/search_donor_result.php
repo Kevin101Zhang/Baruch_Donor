@@ -1,8 +1,8 @@
 <?php
-    require_once('../assets/php/connection.php'); //establishes connection to the database
     session_start();
     $login = $_SESSION['login'];
     if(isset($login)){
+        require_once('../assets/php/connection.php'); //establishes connection to the database
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -50,6 +50,6 @@
         </html>
 <?php
     }else{
-        header("Location:../index_php_files/index.html");
+        header("Location:../index_php_files/index.php");
     }
 ?>

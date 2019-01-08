@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $admin = $_SESSION['login'];
-    if(isset($admin) && $admin == "admin"){
+    if(isset($_SESSION['login']) && $_SESSION['login'] == 'admin'){
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -25,10 +24,10 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#search_donor">Search Donors</a>
+                        <a class="nav-link active" data-toggle="tab" href="#search_donor">Search/Edit Donors</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#add_donor">Add Donor</a>
+                        <a class="nav-link" data-toggle="tab" href="#add_donor">Add Donor/PC</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#add_user">Add User</a>
@@ -38,7 +37,7 @@
                     <!-- Tab panes -->
                     <div class="tab-content jumbotron" id="form_container">
                         <div id="search_donor" class="container tab-pane active">
-                            <h2>Search for a donor</h2>
+                            <h2>Search/Edit Donors</h2>
                             <br>
                             <form method="post" action="../result_php_files/search_donor_result.php">
                                 <div class="form-group">
@@ -59,7 +58,7 @@
                             </form>
                         </div>
                         <div id="add_donor" class="container tab-pane fade">
-                            <h2>Add a Donor</h2>
+                            <h2>Add Donor/PC</h2>
                             <br>
                             <form method="POST" action="../result_php_files/preview.php">
                                 <div class="form-group">
@@ -108,6 +107,7 @@
         </html>
 <?php
     }else{
-        header("Location:index.html");
+        session_destroy(); //clears all login information
+        header("Location:index.php");
     }
 ?>

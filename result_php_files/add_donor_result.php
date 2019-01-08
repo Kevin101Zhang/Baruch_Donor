@@ -1,9 +1,9 @@
 <?php
-    require_once('../assets/php/connection.php'); //establishes connection to the database
     session_start();
     $login = $_SESSION['login'];
     $user = $_SESSION['user'];
     if(isset($login)){
+        require_once('../assets/php/connection.php'); //establishes connection to the database
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -50,8 +50,15 @@
                         $log_message = "Add new PC: '$pc_name' to Donor: '$prefix $first_name $last_name $suffix'";
                         require_once('../assets/php/log.php'); 
 
+                    //user confirms to overwrite existing donor with new donor
+                    }
+                    /////////////////////////////////////////testing///////////////////////////////////////////////////////////////////////
+                    // elseif(isset($_POST['confirm_overwrite'])){
+                    //     $overwrite_query = "UPDATE donor SET first_name = '$first_name'";
+                    /////////////////////////////////////////testing///////////////////////////////////////////////////////////////////////
+                    // }
                     //user confirms to add new donor
-                    }elseif(isset($_POST['confirm_new_donor'])){
+                    elseif(isset($_POST['confirm_new_donor'])){
                         //add new donor to database
                         $add_donor_query = "INSERT INTO donor(prefix,first_name,last_name,suffix) VALUES('$prefix','$first_name','$last_name','$suffix')"; //builds the query for adding a donor
                         mysqli_query($mysql, $add_donor_query); //runs the add_donor query
@@ -107,6 +114,6 @@
         </html>
 <?php
     }else{
-        header("Location:../index_php_files/index.html");
+        header("Location:../index_php_files/index.php");
     }
 ?>

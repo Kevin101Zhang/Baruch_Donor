@@ -3,6 +3,7 @@
     $login = $_SESSION['login'];
     $user = $_SESSION['user'];
     if(isset($login) && $login == "admin"){
+        require_once('../assets/php/connection.php');
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -24,7 +25,6 @@
                     <?php
                         //when user submits request to add new user
                         if(isset($_POST['submit_add_user'])){
-                            require_once('../assets/php/connection.php');
                             
                             $username = $_POST["username"];
                             $password = $_POST["password"];
@@ -66,6 +66,6 @@
         </html>
 <?php
     }else{
-        header("Location:../index_php_files/index.html");
+        header("Location:../index_php_files/index.php");
     }
 ?>
