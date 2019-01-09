@@ -20,12 +20,10 @@
 
         <body>
             <?php
-            
                 //on click of search_donor button
                 if(isset($_POST['submit_search_donor'])){
-
                     // define the list of fields
-                    $fields = array('donor_id', 'prefix', 'first_name', 'last_name', 'suffix', 'entry_date');
+                    $fields = array('donor_id', 'prefix', 'first_name', 'last_name', 'suffix', 'entry_date','pc_id');
                     $conditions = array();
 
                     // loop through the defined fields
@@ -38,12 +36,18 @@
 
                     $donor_query = "SELECT * FROM donor ";
                     $donor_query .= "WHERE " . implode (' AND ', $conditions); //appends the conditions
+                    
+                    //if user only enters pc_id as search criteria
+                    if(!empty($_POST['pc_id'])){
+                        $pc_id = $_POST['pc_id'];
+                        $donor_query = "SELECT * FROM donor INNER JOIN computer ON computer.donor_id_f = donor.donor_id AND computer.pc_id = '$pc_id'";
+                    }
+
                     $_SESSION['donor_query'] = $donor_query;
                     $donor_result = mysqli_query($mysql, $donor_query);
 
                     require('holder.php');   
                 }
-                
                 ?>
         </body>
 

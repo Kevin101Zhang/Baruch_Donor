@@ -8,3 +8,61 @@
 [Jan 08, 2019 04:30:41 PM] [user] Add new PC: 'H610-005' to Donor: ' Long Shing Chan '
 [Jan 08, 2019 04:31:15 PM] [user] Add new donor: 'Mr. York Li ' to PC: 'H610-006'
 [Jan 08, 2019 04:44:13 PM] [user] Log in
+[Jan 09, 2019 10:01:34 AM] [user] Log in
+[Jan 09, 2019 10:02:57 AM] [bctcproject] Log in
+[Jan 09, 2019 01:41:50 PM] [user] Log in
+[Jan 09, 2019 01:47:00 PM] [user] Log in
+[Jan 09, 2019 01:55:05 PM] [bctcproject] Log in
+[Jan 09, 2019 02:10:17 PM] [bctcproject] Log in
+[Jan 09, 2019 02:16:44 PM] [bctcproject] Delete: 'H610-006' from Donor: Mr., York, Li, 
+[Jan 09, 2019 02:18:15 PM] [bctcproject] Delete: 'H610-003' from Donor: Mr. , Jun, Huang, Sr.
+[Jan 09, 2019 02:18:29 PM] [bctcproject] Delete: 'H610-005' from Donor: , Long Shing, Chan, 
+[Jan 09, 2019 02:19:37 PM] [bctcproject] Add new PC: 'H610-009' to Donor: 'Mr. york li '
+[Jan 09, 2019 02:31:42 PM] [bctcproject] Add new donor: 'Mr. Tony Baldwin Sr.' to PC: 'H610-008'
+[Jan 09, 2019 02:35:50 PM] [bctcproject] Log in
+[Jan 09, 2019 03:05:13 PM] [bctcproject] Log in
+[Jan 09, 2019 03:09:54 PM] [bctcproject] Log in
+[Jan 09, 2019 03:21:35 PM] [bctcproject] Delete: 'H610-002' from Donor: Mr.  Jun Huang Sr.
+[Jan 09, 2019 03:24:32 PM] [user] Log in
+[Jan 09, 2019 03:25:39 PM] [bctcproject] Log in
+[Jan 09, 2019 03:26:15 PM] [bctcproject] Log in
+[Jan 09, 2019 03:27:13 PM] [] Log in
+[Jan 09, 2019 03:27:59 PM] [1] Log in
+[Jan 09, 2019 03:45:29 PM] [1] Delete: 'H610-001' from Donor: Mr.  Jun Huang Sr.
+[Jan 09, 2019 03:46:28 PM] [1] Add new PC: 'H610-001' to Donor: ' Long Shing Chan  '
+[Jan 09, 2019 03:48:59 PM] [1] Log in
+[Jan 09, 2019 03:50:11 PM] [1] Add new PC: 'H610-001' to Donor: ' Long shing Chan  '
+[Jan 09, 2019 03:55:16 PM] [user] Log in
+[Jan 09, 2019 04:01:12 PM] [user] Add new donor: ' bvc bvc ' to PC: 'bvc'
+[Jan 09, 2019 04:01:26 PM] [user] Delete: 'bvc' from Donor:  bvc bvc 
+[Jan 09, 2019 04:02:07 PM] [1] Log in
+[Jan 09, 2019 04:05:22 PM] [1] Log in
+[Jan 09, 2019 04:06:41 PM] [1] Log in
+[Jan 09, 2019 04:07:28 PM] [1] Log in
+[Jan 09, 2019 04:11:51 PM] [user] Log in
+[Jan 09, 2019 04:13:01 PM] [1] Log in
+[Jan 09, 2019 04:14:34 PM] [1] Log in
+[Jan 09, 2019 04:15:36 PM] [1] Add new donor: ' dsadsadsa dsadsadsadsa ' to PC: 'dsadsadsa'
+[Jan 09, 2019 04:16:14 PM] [1] Log in
+[Jan 09, 2019 04:16:22 PM] [1] Add new donor: ' fdsafdsa fdsafdsa ' to PC: 'fdsafdsa'
+[Jan 09, 2019 04:18:45 PM] [1] Log in
+[Jan 09, 2019 04:22:15 PM] [1] Log in
+[Jan 09, 2019 04:25:12 PM] [bctcproject] Log in
+[Jan 09, 2019 04:25:55 PM] [bctcproject] Add new donor: ' fsafsa fsafsa ' to PC: 'fsafsafsa'
+[Jan 09, 2019 04:27:21 PM] [1] Log in
+[Jan 09, 2019 04:27:28 PM] [1] Add new donor: ' dsdafsa fdsafdsa ' to PC: 'dsafdsafdsa'
+[Jan 09, 2019 04:27:40 PM] [1] Log in
+[Jan 09, 2019 04:28:07 PM] [1] Log in
+[Jan 09, 2019 04:28:14 PM] [1] Add new donor: ' fdsafdsa fdsafdsafdsa ' to PC: 'fdsafdsafdsa'
+[Jan 09, 2019 04:29:00 PM] [1] Log in
+[Jan 09, 2019 04:29:06 PM] [1] Add new donor: ' 1 1 ' to PC: '1'
+[Jan 09, 2019 04:29:22 PM] [1] Log in
+[Jan 09, 2019 04:55:26 PM] [user] Log in
+[Jan 09, 2019 04:56:12 PM] [user] Log in
+[Jan 09, 2019 05:01:31 PM] [1] Log in
+[Jan 09, 2019 05:03:54 PM] [bctcproject] Log in
+[Jan 09, 2019 05:10:17 PM] [1] Log in
+[Jan 09, 2019 05:20:15 PM] [1] Log in
+[Jan 09, 2019 05:21:22 PM] [1] Log in
+[Jan 09, 2019 05:31:32 PM] [1] Log in
+[Jan 09, 2019 05:34:34 PM] [1] Log in

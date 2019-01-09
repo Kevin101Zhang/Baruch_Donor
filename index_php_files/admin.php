@@ -13,7 +13,6 @@
             <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-            <script defer src="../Assets/js/admin.js"></script>
         </head>
 
         <body>
@@ -22,7 +21,7 @@
 
                 <div class="container col-8 col-lg-4 box">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
+                    <ul class="nav nav-tabs nav-fill" role="tablist">
                         <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#search_donor">Search/Edit Donors</a>
                         </li>
@@ -33,32 +32,41 @@
                         <a class="nav-link" data-toggle="tab" href="#add_user">Add User</a>
                         </li>
                     </ul>
-                    
-                    <!-- Tab panes -->
+
                     <div class="tab-content jumbotron" id="form_container">
-                        <div id="search_donor" class="container tab-pane active">
-                            <h2>Search/Edit Donors</h2>
+                        <!--Search by name pane-->
+                        <div id="search_donor" class="container tab-pane active"><br>
+                            <h4>Search/Edit Donors by Name</h4>
                             <br>
                             <form method="post" action="../result_php_files/search_donor_result.php">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Prefix" name="prefix">
+                                    <input type="text" class="block form-control" placeholder="Prefix" name="prefix">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name" name="first_name">
+                                    <input type="text" class="block form-control" placeholder="First Name" name="first_name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name" name="last_name">
+                                    <input type="text" class="block form-control" placeholder="Last Name" name="last_name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Suffix" name="suffix">
+                                    <input type="text" class="block form-control" placeholder="Suffix" name="suffix">
                                 </div>
+
+                                <hr>
+                                <h4>Search/Edit Donors by PC</h4>
+                                <br>
+                                <div class="form-group">
+                                    <input id="pc_id" type="text" class="form-control" placeholder="PC" name="pc_id">
+                                </div>
+
                                 <div class="text-center"> 
                                 <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>
                                 </div>
                             </form>
                         </div>
-                        <div id="add_donor" class="container tab-pane fade">
-                            <h2>Add Donor/PC</h2>
+                        <!--add donor pane-->
+                        <div id="add_donor" class="container tab-pane fade"><br>
+                            <h4>Add Donor/PC</h4>
                             <br>
                             <form method="POST" action="../result_php_files/preview.php">
                                 <div class="form-group">
@@ -81,8 +89,9 @@
                                 </div>
                             </form>
                         </div>
-                        <div id="add_user" class="container tab-pane fade">
-                            <h2>Add a User</h2>
+                        <!--add user pane-->
+                        <div id="add_user" class="container tab-pane fade"><br>
+                            <h4>Add a User</h4>
                             <br>
                             <form method="post" action="../result_php_files/add_user_result.php">
                                 <div class="form-group">
@@ -94,7 +103,6 @@
                                 <div class="text-center"> 
                                     <button type="submit" class="btn btn-primary" name="submit_add_user">Add</button>
                                 </div>
-                                </form>
                             </form>
                         </div>
                     </div>
@@ -102,6 +110,7 @@
 
                 <div class="container col-2 col-lg-4"></div>
             </div>
+            <script src="../assets/js/disable_input.js"></script>
         </body>
 
         </html>

@@ -49,6 +49,10 @@ form{
   display:inline;
 }
 
+#form_container{
+  padding-top: 10px;
+}
+
 .center_button{
   text-align:center;
   display: block;
@@ -80,5 +84,6 @@ form{
   margin-right: 0;
   margin-left: 0;
 }
+
 
 

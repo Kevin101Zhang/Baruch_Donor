@@ -65,8 +65,21 @@
 
                             $existing_donor = "SELECT prefix, first_name, last_name, suffix FROM donor WHERE prefix = '$prefix' AND first_name = '$first_name' AND last_name = '$last_name' AND suffix = '$suffix'";
                             $existing_pc = "SELECT pc_id FROM computer WHERE '$pc_name' = pc_id";
+                            //donor and pc already exists`
+                            if (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0 && mysqli_num_rows(mysqli_query($mysql, $existing_pc)) > 0){ 
+                        ?>
+                                <div class="alert alert-danger">
+                                    <strong> <?php echo $pc_name; ?> </strong> is already assigned to
+                                    <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?> </strong>.
+                                </div>
+                                <form method="post" action="add_donor_result.php">
+                                    <input id="input_img" name="img" type="hidden" value="">
+                                    <!-- <button type="submit" class="btn btn-primary" name="confirm_add_pc">Confirm</button> -->
+                                </form>
+                        <?php
+                            }
                             //donor already exists
-                            if (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0){ 
+                            elseif (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0){ 
                         ?> 
                                 <div class="alert alert-danger">
                                     <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?> </strong>
@@ -79,19 +92,17 @@
                         <?php
                             //user is adding a donor to a preoccupied PC
                             }
-                            /////////////////////////////////////////testing///////////////////////////////////////////////////////////////////////
                             elseif (mysqli_num_rows(mysqli_query($mysql, $existing_pc)) > 0){
                         ?>
                                 <div class="alert alert-danger">
                                     Another donor is already assigned to PC: 
                                     <strong> <?php echo $pc_name; ?> </strong>.
-                                    Would you like to overwrite the current donor this computer with the new donor? 
+                                    Please remove all donors from the selected PC before adding a new donor.
                                 </div>
                                 <form method="post" action="add_donor_result.php">
                                     <input id="input_img" name="img" type="hidden" value="">
-                                    <button type="submit" class="btn btn-primary" name="confirm_overwrite">Confirm</button>
+                                    <!-- <button type="submit" class="btn btn-primary" name="confirm_overwrite">Confirm</button> -->
                                 </form>  
-                                <!-- /////////////////////////////////////////testing/////////////////////////////////////////////////////////////////////// -->
                         <?php
                             }
                             //There are NO matching results. User can add this new donor.
@@ -124,9 +135,6 @@
                 ctx.scale(.5, .5);
                 ctx.drawImage(canvas, 0, 0);
             });
-        //     if ( window.history.replaceState ) {
-        //     window.history.replaceState( {} , 'foo', '../index_php_files/index.php' );
-        // }  
         </script>
     </body>
 

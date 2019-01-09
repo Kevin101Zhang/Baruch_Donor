@@ -25,7 +25,6 @@
                         </tbody>
                     </table>
                     </div>
-
                         <?php
                             while($donor_row = mysqli_fetch_assoc($donor_result)){
 
@@ -35,11 +34,10 @@
                                 $last_name = $donor_row['last_name'];
                                 $suffix = $donor_row['suffix'];
                                 $entry_date = $donor_row['entry_date'];
-
                         ?>
                                 <script>
                                     var table = document.getElementById("donor_table");
-                                    var row = table.insertRow(-1);
+                                    var row = table.insertRow();
                                     var donor_id_cell = row.insertCell(0);
                                     var prefix_cell = row.insertCell(1);
                                     var first_name_cell = row.insertCell(2);
@@ -55,21 +53,21 @@
                                     entry_date_cell.innerHTML = "<?php echo $entry_date ?>";
                                 </script>
                         <?php
-                                $pc_query = "SELECT DISTINCT computer.pc_id FROM computer INNER JOIN donor ON computer.donor_id_f = '$donor_id'"; //builds the query to find matching pc_id
-                                $pc_result = mysqli_query($mysql, $pc_query); 
-                                while($pc_row = mysqli_fetch_assoc($pc_result)){
-                                    $pc_id = $pc_row['pc_id'];
+                           $pc_query = "SELECT DISTINCT computer.pc_id FROM computer INNER JOIN donor ON computer.donor_id_f = '$donor_id'"; //builds the query to find matching pc_id
+                           $pc_result = mysqli_query($mysql, $pc_query); 
+                           while($pc_row = mysqli_fetch_assoc($pc_result)){
+                               $pc_id = $pc_row['pc_id'];    
                         ?>
                                     <script>
                                         var pc_id_cell = row.insertCell(6);
 
-                                        pc_id_cell.innerHTML = '<form method="post" action="delete.php">' +
-                                        '<button class="delete_button" type="submit" name="delete_button" id="delete_button" >x</button> &nbsp' +
-                                        '</form>' + 
-                                        '<?php echo $pc_id; ?>'; 
+                                        pc_id_cell.innerHTML = '<form method="post" action="delete.php">'
+                                        +'<button class="delete_button" type="submit" name="delete_button" id="<?php echo $pc_id; ?>" >x</button> &nbsp'
+                                        +'</form>' 
+                                        + '<?php echo $pc_id; ?>'; 
 
-                                        $('#delete_button').val("<?php echo $pc_id; ?>");
-                                    </script>
+                                        $('#<?php echo $pc_id; ?>').val('<?php echo $pc_id; ?>');
+                                    </script>                               
                         <?php
                                 }
                             }

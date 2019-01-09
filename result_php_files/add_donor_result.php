@@ -49,14 +49,7 @@
                         $log_user = "$user";
                         $log_message = "Add new PC: '$pc_name' to Donor: '$prefix $first_name $last_name $suffix'";
                         require_once('../assets/php/log.php'); 
-
-                    //user confirms to overwrite existing donor with new donor
                     }
-                    /////////////////////////////////////////testing///////////////////////////////////////////////////////////////////////
-                    // elseif(isset($_POST['confirm_overwrite'])){
-                    //     $overwrite_query = "UPDATE donor SET first_name = '$first_name'";
-                    /////////////////////////////////////////testing///////////////////////////////////////////////////////////////////////
-                    // }
                     //user confirms to add new donor
                     elseif(isset($_POST['confirm_new_donor'])){
                         //add new donor to database
@@ -110,6 +103,11 @@
                 <?php } ?>
             </div>
         </div>
+        <script>
+         if ( window.history.replaceState ) {
+            window.history.replaceState( {} , 'index', '../index_php_files/index.php' );
+        }  
+        </script>
         </body>
         </html>
 <?php

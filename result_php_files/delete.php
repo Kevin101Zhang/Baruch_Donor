@@ -2,7 +2,7 @@
     session_start();
     $login = $_SESSION['login'];
     $user = $_SESSION['user'];
-    if(isset($login)){
+    if(isset($login) && isset($_POST['delete_button'])){
         require_once('../assets/php/connection.php'); //establishes connection to the database
 ?>
     <!DOCTYPE html>
@@ -23,35 +23,43 @@
     <body>
 
     <?php
-        //on click of delete button
-        if(isset($_POST['delete_button'])) {
-            $delete_pc = $_POST['delete_button'];
-            $donor_query = "SELECT * FROM donor INNER JOIN computer ON computer.donor_id_f = donor.donor_id AND computer.pc_id = '$delete_pc'";
-            $donor_result = mysqli_query($mysql, $donor_query);
+        $delete_pc = $_POST['delete_button'];
+        $donor_query = "SELECT * FROM donor INNER JOIN computer ON computer.donor_id_f = donor.donor_id AND computer.pc_id = '$delete_pc'";
+        $donor_result = mysqli_query($mysql, $donor_query);
 
-            while($donor_row = mysqli_fetch_assoc($donor_result)){
-                $prefix = $donor_row['prefix'];
-                $first_name = $donor_row['first_name'];
-                $last_name = $donor_row['last_name'];
-                $suffix = $donor_row['suffix'];
-            
-                //deletes specified PC
-                $delete_query = "DELETE FROM computer WHERE pc_id = '$delete_pc' ";
-                mysqli_query($mysql, $delete_query);
+        while($donor_row = mysqli_fetch_assoc($donor_result)){
+            $prefix = $donor_row['prefix'];
+            $first_name = $donor_row['first_name'];
+            $last_name = $donor_row['last_name'];
+            $suffix = $donor_row['suffix'];
+        
+            //deletes specified PC from database
+            $delete_query = "DELETE FROM computer WHERE pc_id = '$delete_pc' ";
+            mysqli_query($mysql, $delete_query);
 
-                require_once('../Assets/php/query_error.php');//checks if query ran successfully
-                //logs user action
-                $log_file = fopen("../assets/log.txt", "a") or die("Unable to open log file!");
-                $log_user = "$user";
-                $log_message = "Delete: '$delete_pc' from Donor: $prefix, $first_name, $last_name, $suffix";
-                require_once('../assets/php/log.php'); 
+            //deletes local background and folder
+            $delete_folder = "../donor_backgrounds/" . $delete_pc;
+            $delete_file = $delete_folder . "/Baruch-College-Background-Wallpaper.png";
+            unlink($delete_file);
+            rmdir($delete_folder);
 
-                //refreshes the search results
-                $donor_query = $_SESSION['donor_query'];
-                $donor_result = mysqli_query($mysql, $donor_query);
-                require('holder.php'); 
+            //check if folder was deleted
+            if(file_exists($delete_folder)){
+                die("File did not delete sucessfully.");
             }
-        }
+
+            require_once('../Assets/php/query_error.php');//checks if query ran successfully
+            //logs user action
+            $log_file = fopen("../assets/log.txt", "a") or die("Unable to open log file!");
+            $log_user = "$user";
+            $log_message = "Delete: '$delete_pc' from Donor: $prefix $first_name $last_name $suffix";
+            require_once('../assets/php/log.php'); 
+
+            //refreshes the search results
+            $donor_query = $_SESSION['donor_query'];
+            $donor_result = mysqli_query($mysql, $donor_query);
+            require('holder.php'); 
+    }
 
     ?>
     </body>
