@@ -20,7 +20,7 @@
         </head>
 
         <body>
-            
+            <script src="../assets/js/disable_input.js"></script>
             <div class="row">
                 <div class="container col-2 col-lg-4"></div>
 
@@ -42,22 +42,22 @@
                             <br>
                             <form method="post" action="../result_php_files/search_donor_result.php">
                                 <div class="form-group">
-                                    <input id="prefix" type="text" class="block form-control" placeholder="Prefix" name="prefix" onkeyup="disablefld()">
+                                    <input id="prefix" type="text" class="block form-control" placeholder="Prefix" name="prefix" onkeyup="disable_pc()">
                                 </div>
                                 <div class="form-group">
-                                    <input id="first_name" type="text" class="block form-control" placeholder="First Name" name="first_name" onkeyup="disablefld()">
+                                    <input id="first_name" type="text" class="block form-control" placeholder="First Name" name="first_name" onkeyup="disable_pc()">
                                 </div>
                                 <div class="form-group">
-                                    <input id="last_name" type="text" class="block form-control" placeholder="Last Name" name="last_name" onkeyup="disablefld()">
+                                    <input id="last_name" type="text" class="block form-control" placeholder="Last Name" name="last_name" onkeyup="disable_pc()">
                                 </div>
                                 <div class="form-group">
-                                    <input id="suffix" type="text" class="block form-control" placeholder="Suffix" name="suffix" onkeyup="disablefld()">
+                                    <input id="suffix" type="text" class="block form-control" placeholder="Suffix" name="suffix" onkeyup="disable_pc()">
                                 </div>
                             <hr>
                                 <h4>Search/Edit Donors by PC</h4>
                                 <br>
                                 <div class="form-group">
-                                    <input id="pc_id" type="text" class="form-control" placeholder="PC" name="pc_id" onkeyup="disablepc()">
+                                    <input id="pc_id" type="text" class="form-control" placeholder="PC" name="pc_id">
                                 </div>
                                 <div class="text-center"> 
                                     <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>
@@ -92,7 +92,6 @@
 
                 <div class="container col-2 col-lg-4"></div>
             </div>
-            <script src="../assets/js/disable_input.js"></script>
         </body>
 
         </html>

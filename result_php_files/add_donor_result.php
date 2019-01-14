@@ -37,7 +37,7 @@
                     //if user confirms to add PC to existing donor
                     if(isset($_POST['confirm_add_pc'])){ 
                         //add pc to existing donor
-                        $id_result = "SELECT donor_id FROM donor WHERE first_name = '$first_name' AND last_name = '$last_name' AND suffix = '$suffix'";
+                        $id_result = "SELECT donor_id FROM donor WHERE first_name = '$first_name' AND last_name = '$last_name'";
                         $id_row = mysqli_fetch_assoc(mysqli_query($mysql, $id_result));
                         $id = $id_row['donor_id'];
                         $add_pc = "INSERT INTO computer(pc_id, donor_id_f) VALUES('$pc_name','$id')"; 
