@@ -60,7 +60,8 @@
                                 </div>
 
                                 <div class="text-center"> 
-                                <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>
+                                    <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>
+                                    <button type="submit" class="btn btn-primary" name="view_all">View all PCs</button>
                                 </div>
                             </form>
                         </div>

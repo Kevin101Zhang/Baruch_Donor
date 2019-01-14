@@ -49,6 +49,7 @@
             }
 
             require_once('../Assets/php/query_error.php');//checks if query ran successfully
+
             //logs user action
             $log_file = fopen("../assets/log.txt", "a") or die("Unable to open log file!");
             $log_user = "$user";
@@ -59,8 +60,7 @@
             $donor_query = $_SESSION['donor_query'];
             $donor_result = mysqli_query($mysql, $donor_query);
             require('holder.php'); 
-    }
-
+        }
     ?>
     </body>
 

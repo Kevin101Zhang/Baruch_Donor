@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>Search For Donors</title>
+        <title>Preview</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css">
         <link rel="stylesheet" href="../Assets/CSS/preview.css" type="text/css">
@@ -50,31 +50,39 @@
 
                         <canvas id="preview_canvas" width="950px" height="550px"></canvas> <!-- actual preview -->
                         <?php
-                            // sets the form inputs as variables
+                            //sets the form inputs as variables
                             $prefix = $_POST["prefix"];
                             $first_name = $_POST["first_name"];
                             $last_name = $_POST["last_name"];
                             $suffix = $_POST["suffix"];
                             $pc_name = $_POST["pc_name"];
 
+                            //creates sessions for input variables
                             $_SESSION['prefix'] = $prefix;
                             $_SESSION['first_name'] = $first_name;
                             $_SESSION['last_name'] = $last_name;
                             $_SESSION['suffix'] = $suffix;
                             $_SESSION['pc_name'] = $pc_name;
 
+                            //builds the queries
                             $existing_donor = "SELECT prefix, first_name, last_name, suffix FROM donor WHERE prefix = '$prefix' AND first_name = '$first_name' AND last_name = '$last_name' AND suffix = '$suffix'";
                             $existing_pc = "SELECT pc_id FROM computer WHERE '$pc_name' = pc_id";
-                            //donor and pc already exists`
-                            if (mysqli_num_rows(mysqli_query($mysql, $existing_donor)) > 0 && mysqli_num_rows(mysqli_query($mysql, $existing_pc)) > 0){ 
+                            $similar_donor = "SELECT prefix, first_name, last_name, suffix FROM donor WHERE first_name = '$first_name' AND last_name = '$last_name'"; 
+                            $existing_donor_result = mysqli_query($mysql, $existing_donor);
+                            $existing_pc_result = mysqli_query($mysql, $existing_pc);
+                            $similar_donor_result = mysqli_query($mysql, $similar_donor);
+
+                            //donor and pc already exists
+                            if (mysqli_num_rows($existing_donor_result) > 0 && mysqli_num_rows($existing_pc_result) > 0){ 
                         ?>
                                 <div class="alert alert-danger">
                                     <strong> <?php echo $pc_name; ?> </strong> is already assigned to
                                     <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?> </strong>.
                                 </div>
+
+                                <!-- only used to display background preview, not actually a form to submit -->
                                 <form method="post" action="add_donor_result.php">
                                     <input id="input_img" name="img" type="hidden" value="">
-                                    <!-- <button type="submit" class="btn btn-primary" name="confirm_add_pc">Confirm</button> -->
                                 </form>
                         <?php
                             }
@@ -90,8 +98,8 @@
                                     <button type="submit" class="btn btn-primary" name="confirm_add_pc">Confirm</button>
                                 </form>
                         <?php
-                            //user is adding a donor to a preoccupied PC
                             }
+                            //PC is already occupied
                             elseif (mysqli_num_rows(mysqli_query($mysql, $existing_pc)) > 0){
                         ?>
                                 <div class="alert alert-danger">
@@ -99,11 +107,34 @@
                                     <strong> <?php echo $pc_name; ?> </strong>.
                                     Please remove all donors from the selected PC before adding a new donor.
                                 </div>
+                                <!-- only used to display background preview, not actually a form to submit -->
                                 <form method="post" action="add_donor_result.php">
                                     <input id="input_img" name="img" type="hidden" value="">
-                                    <!-- <button type="submit" class="btn btn-primary" name="confirm_overwrite">Confirm</button> -->
                                 </form>  
                         <?php
+                            }
+                            //a similar donor exists
+                            elseif(mysqli_num_rows($similar_donor_result) > 0){
+                        ?>
+                                <div class="alert alert-danger">
+                                    A very similar donor exists with different prefix and/or suffix:
+                                    <strong> 
+                                        <?php 
+                                            $donor_row = mysqli_fetch_assoc($similar_donor_result);
+                                            foreach($donor_row as $donor_attribute) {
+                                                echo $donor_attribute, " ";
+                                            }
+                                        ?> 
+                                    </strong>
+                                    .Would you like to add PC:<strong> <?php echo $pc_name; ?> </strong> to the existing donor? <br>
+                                </div>
+                                <form method="post" action="add_donor_result.php">
+                                    <input id="input_img" name="img" type="hidden" value="">
+                                    <button type="submit" class="btn btn-primary" name="confirm_add_donor">No, this is a different donor</button>
+                                    <button type="submit" class="btn btn-primary" name="confirm_add_pc">Yes, add this PC to the existing donor</button>
+                                    
+                                </form>  
+                        <?php      
                             }
                             //There are NO matching results. User can add this new donor.
                             else{ 

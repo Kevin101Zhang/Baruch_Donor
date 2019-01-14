@@ -33,6 +33,7 @@
                     $pc_name = $_SESSION['pc_name'];
 
                     $existing_donor = "SELECT prefix, first_name, last_name, suffix FROM donor WHERE prefix = '$prefix' AND first_name = '$first_name' AND last_name = '$last_name' AND suffix = '$suffix'"; 
+                    
                     //if user confirms to add PC to existing donor
                     if(isset($_POST['confirm_add_pc'])){ 
                         //add pc to existing donor
@@ -92,7 +93,7 @@
                         </div>
             <?php
                         } else {
-                            echo "<p>The file could not be saved.</p>";
+                            die("The file could not be saved.");
                         }
                     }
             ?>

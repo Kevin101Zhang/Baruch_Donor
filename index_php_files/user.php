@@ -58,7 +58,10 @@
                                 <div class="form-group">
                                     <input id="pc_id" type="text" class="form-control" placeholder="PC" name="pc_id">
                                 </div>
-                                <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>
+                                <div class="text-center"> 
+                                    <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>
+                                    <button type="submit" class="btn btn-primary" name="view_all">View all PCs</button>
+                                </div>
                             </form>
                         </div>
                         <div id="add_donor" class="container tab-pane fade"><br>

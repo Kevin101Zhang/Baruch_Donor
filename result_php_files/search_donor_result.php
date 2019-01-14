@@ -34,21 +34,24 @@
                         }
                     }
 
-                    $donor_query = "SELECT * FROM donor ";
+                    $donor_query = "SELECT * FROM donor "; //don't remove space after donor!!
                     $donor_query .= "WHERE " . implode (' AND ', $conditions); //appends the conditions
                     
                     //if user only enters pc_id as search criteria
                     if(!empty($_POST['pc_id'])){
                         $pc_id = $_POST['pc_id'];
                         $donor_query = "SELECT * FROM donor INNER JOIN computer ON computer.donor_id_f = donor.donor_id AND computer.pc_id = '$pc_id'";
-                    }
-
-                    $_SESSION['donor_query'] = $donor_query;
-                    $donor_result = mysqli_query($mysql, $donor_query);
-
-                    require('holder.php');   
+                    }  
                 }
-                ?>
+                //onclick of view all PC
+                if(isset($_POST['view_all'])){
+                    $donor_query = "SELECT * FROM donor INNER JOIN computer ON computer.donor_id_f = donor.donor_id";
+                }
+                
+                $_SESSION['donor_query'] = $donor_query;
+                $donor_result = mysqli_query($mysql, $donor_query);
+                require('holder.php');   
+            ?>
         </body>
 
         </html>
