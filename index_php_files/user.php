@@ -20,6 +20,7 @@
         </head>
 
         <body>
+            
             <div class="row">
                 <div class="container col-2 col-lg-4"></div>
 
@@ -41,22 +42,22 @@
                             <br>
                             <form method="post" action="../result_php_files/search_donor_result.php">
                                 <div class="form-group">
-                                    <input id="prefix" type="text" class="block form-control" placeholder="Prefix" name="prefix">
+                                    <input id="prefix" type="text" class="block form-control" placeholder="Prefix" name="prefix" onkeyup="disablefld()">
                                 </div>
                                 <div class="form-group">
-                                    <input id="first_name" type="text" class="block form-control" placeholder="First Name" name="first_name">
+                                    <input id="first_name" type="text" class="block form-control" placeholder="First Name" name="first_name" onkeyup="disablefld()">
                                 </div>
                                 <div class="form-group">
-                                    <input id="last_name" type="text" class="block form-control" placeholder="Last Name" name="last_name">
+                                    <input id="last_name" type="text" class="block form-control" placeholder="Last Name" name="last_name" onkeyup="disablefld()">
                                 </div>
                                 <div class="form-group">
-                                    <input id="suffix" type="text" class="block form-control" placeholder="Suffix" name="suffix">
+                                    <input id="suffix" type="text" class="block form-control" placeholder="Suffix" name="suffix" onkeyup="disablefld()">
                                 </div>
                             <hr>
                                 <h4>Search/Edit Donors by PC</h4>
                                 <br>
                                 <div class="form-group">
-                                    <input id="pc_id" type="text" class="form-control" placeholder="PC" name="pc_id">
+                                    <input id="pc_id" type="text" class="form-control" placeholder="PC" name="pc_id" onkeyup="disablepc()">
                                 </div>
                                 <div class="text-center"> 
                                     <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>

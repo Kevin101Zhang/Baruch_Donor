@@ -6,7 +6,7 @@
         <div class="container box">
             <div class="jumbotron">
                 <div class="alert alert-success">
-                    <div class="container">
+                    <div class="container" id="donor_container">
                         <h2>Search Results</h2>         
                         <table class="table table-striped" id="donor_table">
                             <thead>
