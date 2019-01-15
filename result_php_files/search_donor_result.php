@@ -15,6 +15,7 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+            <script src='../Assets/js/table2csv.js'></script>
             <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css"> 
         </head>
 
@@ -43,9 +44,15 @@
                         $donor_query = "SELECT * FROM donor INNER JOIN computer ON computer.donor_id_f = donor.donor_id AND computer.pc_id = '$pc_id'";
                     }  
                 }
-                //onclick of view all PC
-                if(isset($_POST['view_all'])){
+
+                //onclick of view all PCs
+                if(isset($_POST['view_all_pc'])){
                     $donor_query = "SELECT * FROM donor INNER JOIN computer ON computer.donor_id_f = donor.donor_id";
+                }
+
+                //onclick of view all donors
+                if(isset($_POST['view_all_donors'])){
+                    $donor_query = "SELECT * FROM donor";
                 }
                 
                 $_SESSION['donor_query'] = $donor_query;

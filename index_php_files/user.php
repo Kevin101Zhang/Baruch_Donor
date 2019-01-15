@@ -61,7 +61,8 @@
                                 </div>
                                 <div class="text-center"> 
                                     <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>
-                                    <button type="submit" class="btn btn-primary" name="view_all">View all PCs</button>
+                                    <button type="submit" class="btn btn-primary" name="view_all_pc">View all PCs</button>
+                                    <button type="submit" class="btn btn-primary" name="view_all_donors">View all Donors</button>
                                 </div>
                             </form>
                         </div>

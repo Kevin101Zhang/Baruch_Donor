@@ -58,13 +58,19 @@ form{
   display: block;
 }
 
+#log{
+  overflow-y: scroll;
+  max-height:60vh;
+}
+
 /* custom bootstrap */
 .nav-tabs {
     border-bottom: none;
 }
 
-.jumbotron {
+.tab-content.jumbotron {
   border-radius: 0 0 .3rem .3rem;
+  max-height:70vh;
 } 
 #donor_container{
   height:40vh;

@@ -23,13 +23,16 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-fill" role="tablist">
                         <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#search_donor">Search/Edit Donors</a>
+                            <a class="nav-link active" data-toggle="tab" href="#search_donor">Search/Edit Donors</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#add_donor">Add Donor/PC</a>
+                            <a class="nav-link" data-toggle="tab" href="#add_donor">Add Donor/PC</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#add_user">Add User</a>
+                            <a class="nav-link" data-toggle="tab" href="#add_user">Add User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#log">Log</a>   
                         </li>
                     </ul>
 
@@ -61,7 +64,8 @@
 
                                 <div class="text-center"> 
                                     <button type="submit" class="btn btn-primary" name="submit_search_donor">Search</button>
-                                    <button type="submit" class="btn btn-primary" name="view_all">View all PCs</button>
+                                    <button type="submit" class="btn btn-primary" name="view_all_pc">View all PCs</button>
+                                    <button type="submit" class="btn btn-primary" name="view_all_donors">View all Donors</button>
                                 </div>
                             </form>
                         </div>
@@ -105,6 +109,17 @@
                                     <button type="submit" class="btn btn-primary" name="submit_add_user">Add</button>
                                 </div>
                             </form>
+                        </div>
+                        <!--log pane-->
+                        <div id="log" class="container tab-pane fade"><br>
+                            <div>
+                                <?php 
+                                    // //outputs log file
+                                    $log_file = fopen('../assets/log.txt','r');
+                                    $log_text = fread($log_file,filesize("../assets/log.txt"));
+                                    echo nl2br($log_text);
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
