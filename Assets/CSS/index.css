@@ -95,5 +95,9 @@ form{
   margin-left: 0;
 }
 
+th{
+  /* overflow:hidden; */
+}
+
 
 

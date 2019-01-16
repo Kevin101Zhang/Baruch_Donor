@@ -57,3 +57,40 @@
 [Jan 15, 2019 03:38:20 PM] [bctcproject] Delete: 'H6-01' from Donor:  Jean Alarcon 
 [Jan 15, 2019 03:46:47 PM] [1] Log in
 [Jan 15, 2019 03:57:17 PM] [1] Add new PC: 'H6-01' to Donor: ' Jean Alarcon '
+[Jan 16, 2019 10:09:31 AM] [1] Log in
+[Jan 16, 2019 10:15:38 AM] [1] Log in
+[Jan 16, 2019 10:30:04 AM] [1] Log in
+[Jan 16, 2019 10:37:36 AM] [1] Add new PC: 'H6-04' to Donor: ' Jean Alarcon '
+[Jan 16, 2019 10:38:12 AM] [1] Add new PC: 'H6-02' to Donor: ' Jean Alarcon '
+[Jan 16, 2019 10:38:31 AM] [1] Add new PC: 'H6-03' to Donor: ' Jean Alarcon '
+[Jan 16, 2019 10:41:40 AM] [1] Log in
+[Jan 16, 2019 11:07:37 AM] [1] Delete: 'H6-01' from Donor:  Jean Alarcon 
+[Jan 16, 2019 02:25:49 PM] [1] Log in
+[Jan 16, 2019 02:26:10 PM] [1] Add new PC: 'sfdajhksfdajhk' to Donor: ' jean alarcon '
+[Jan 16, 2019 02:28:59 PM] [1] Add new donor: ' Long Shing Chan ' to PC: 'select all'
+[Jan 16, 2019 02:29:16 PM] [1] Add new PC: 'is' to Donor: ' Long Shing Chan '
+[Jan 16, 2019 02:29:28 PM] [1] Add new PC: 'NOT' to Donor: ' Long Shing Chan '
+[Jan 16, 2019 02:29:50 PM] [1] Add new PC: 'the same as ' to Donor: ' Long Shing Chan '
+[Jan 16, 2019 02:30:58 PM] [1] Add new donor: 'Mr. Jun Huang ' to PC: '                         yo'
+[Jan 16, 2019 02:31:16 PM] [1] Add new donor: '1 1 1 1' to PC: '1                '
+[Jan 16, 2019 02:48:24 PM] [1] Add new donor: '2 2 22 2' to PC: '2'
+[Jan 16, 2019 02:50:46 PM] [1] Log in
+[Jan 16, 2019 02:51:10 PM] [1] Add new donor: ' dsa dsa ' to PC: 'jhdsjkJHKDSAJHK-7824367843678243'
+[Jan 16, 2019 02:52:51 PM] [bctcproject] Log in
+[Jan 16, 2019 02:59:03 PM] [1] Log in
+[Jan 16, 2019 02:59:23 PM] [bctcproject] Log in
+[Jan 16, 2019 03:21:24 PM] [1] Log in
+[Jan 16, 2019 03:24:45 PM] [1] Log in
+[Jan 16, 2019 03:38:45 PM] [bctcproject] Log in
+[Jan 16, 2019 03:58:46 PM] [1] Log in
+[Jan 16, 2019 04:01:01 PM] [1] Log in
+[Jan 16, 2019 04:03:29 PM] [1] Log in
+[Jan 16, 2019 04:03:58 PM] [bctcproject] Log in
+[Jan 16, 2019 04:06:18 PM] [bctcproject] Log in
+[Jan 16, 2019 04:06:57 PM] [user] Log in
+[Jan 16, 2019 04:08:17 PM] [1] Log in
+[Jan 16, 2019 04:11:18 PM] [bctcproject] Log in
+[Jan 16, 2019 04:34:59 PM] [1] Log in
+[Jan 16, 2019 04:39:04 PM] [1] Log in
+[Jan 16, 2019 04:39:13 PM] [1] Log in
+[Jan 16, 2019 04:55:25 PM] [1] Log in

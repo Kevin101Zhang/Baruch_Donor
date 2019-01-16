@@ -15,7 +15,6 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-            <script src='../Assets/js/table2csv.js'></script>
             <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css"> 
         </head>
 
@@ -47,7 +46,7 @@
 
                 //onclick of view all PCs
                 if(isset($_POST['view_all_pc'])){
-                    $donor_query = "SELECT * FROM donor INNER JOIN computer ON computer.donor_id_f = donor.donor_id";
+                    $donor_query = "SELECT DISTINCT donor_id, prefix, first_name, last_name, suffix, entry_date FROM donor,computer WHERE computer.donor_id_f = donor.donor_id";
                 }
 
                 //onclick of view all donors

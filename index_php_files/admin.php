@@ -13,9 +13,12 @@
             <link rel="stylesheet" href="../Assets/CSS/index.css" type="text/css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+            
         </head>
 
         <body>
+        <script src="../assets/js/disable_name.js"></script>
+        <script src="../assets/js/disable_input.js"></script>
             <div class="row">
                 <div class="container col-2 col-lg-4"></div>
 
@@ -43,23 +46,24 @@
                             <br>
                             <form method="post" action="../result_php_files/search_donor_result.php">
                                 <div class="form-group">
-                                    <input type="text" class="block form-control" placeholder="Prefix" name="prefix">
+                                    <input id="prefix" type="text" class="block form-control" placeholder="Prefix" name="prefix" onkeyup="disable_pc()">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="block form-control" placeholder="First Name" name="first_name">
+                                    <input id="first_name" type="text" class="block form-control" placeholder="First Name/Organization" name="first_name" onkeyup="disable_pc()">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="block form-control" placeholder="Last Name" name="last_name">
+                                    <input id="last_name" type="text" class="block form-control" placeholder="Last Name" name="last_name" onkeyup="disable_pc()">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="block form-control" placeholder="Suffix" name="suffix">
+                                    <input id="suffix" type="text" class="block form-control" placeholder="Suffix" name="suffix" onkeyup="disable_pc()">
                                 </div>
 
                                 <hr>
+
                                 <h4>Search/Edit Donors by PC</h4>
                                 <br>
                                 <div class="form-group">
-                                    <input id="pc_id" type="text" class="form-control" placeholder="PC" name="pc_id">
+                                    <input id="pc_id" type="text" class="form-control" placeholder="PC" name="pc_id" onkeyup="disable_name()">
                                 </div>
 
                                 <div class="text-center"> 
@@ -78,7 +82,7 @@
                                     <input type="text" class="form-control prefix" placeholder="Prefix" name="prefix">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control first_name" placeholder="First Name" name="first_name" required>
+                                    <input type="text" class="form-control first_name" placeholder="First Name/Organization" name="first_name" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control last_name" placeholder="Last Name" name="last_name" required>
@@ -87,7 +91,7 @@
                                     <input type="text" class="form-control suffix" placeholder="Suffix" name="suffix">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="PC Name" name="pc_name" required>
+                                    <input type="text" class="form-control" pattern="[a-zA-z0-9\-]+" title="Remove all spaces." placeholder="PC Name" name="pc_name" required>
                                 </div>
                                 <div class="text-center"> 
                                 <button type="submit" id="add_donor_button" class="btn btn-primary" name="submit_add_donor">Add</button>

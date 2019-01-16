@@ -131,8 +131,7 @@
                                 <form method="post" action="add_donor_result.php">
                                     <input id="input_img" name="img" type="hidden" value="">
                                     <button type="submit" class="btn btn-primary" name="confirm_add_donor">No, this is a different donor</button>
-                                    <button type="submit" class="btn btn-primary" name="confirm_add_pc">Yes, add this PC to the existing donor</button>
-                                    
+                                    <button type="submit" class="btn btn-primary" name="confirm_add_pc">Yes, add this PC to the existing donor</button>  
                                 </form>  
                         <?php      
                             }
