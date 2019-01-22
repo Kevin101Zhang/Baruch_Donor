@@ -30,6 +30,7 @@
                 $last_name = $_SESSION['last_name'];
                 $suffix = $_SESSION['suffix'];
                 $pc_name = $_SESSION['pc_name'];
+                $full_name = $_SESSION['full_name'];
 
                 $existing_donor = "SELECT prefix, first_name, last_name, suffix FROM donor WHERE prefix = '$prefix' AND first_name = '$first_name' AND last_name = '$last_name' AND suffix = '$suffix'"; 
                 
@@ -46,11 +47,7 @@
                     //checks if file is sucessfully saved
                     if (file_put_contents($file, $data)) {
             ?>
-                    <br>
-                    <div class="alert alert-success" id="success">
-                        Sucessfully added Donor: <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?></strong>
-                        to PC: <strong> <?php echo $pc_name; ?> </strong>
-                    </div>
+                    
                     <?php
                         //if user confirms to add PC to existing donor
                         if(isset($_POST['confirm_add_pc'])){ 
@@ -68,6 +65,22 @@
                             $log_user = "$user";
                             $log_message = "Add new PC: '$pc_name' to Donor: '$prefix $first_name $last_name $suffix'";
                             require_once('../assets/php/log.php'); 
+                            if(isset($_POST['similar_donor'])){ 
+                        ?>  
+                                <div class="alert alert-success" id="success">
+                                    Sucessfully added PC: <strong> <?php echo $full_name; ?> </strong>
+                                    to Donor:<strong> <?php echo $pc_name; ?></strong>
+                                </div>
+                        <?php
+                            }
+                            else{
+                        ?>
+                                <div class="alert alert-success" id="success">
+                                    Sucessfully added Donor: <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?></strong>
+                                    to PC: <strong> <?php echo $pc_name; ?> </strong>
+                                </div>
+                        <?php
+                            }
                         }
                         //user confirms to add new donor
                         elseif(isset($_POST['confirm_new_donor'])){
@@ -89,6 +102,12 @@
                             $log_user = "$user";
                             $log_message = "Add new donor: '$prefix $first_name $last_name $suffix' to PC: '$pc_name'";
                             require_once('../assets/php/log.php'); 
+                        ?>  
+                            <div class="alert alert-success" id="success">
+                                Sucessfully added Donor: <strong> <?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?></strong>
+                                to PC: <strong> <?php echo $pc_name; ?> </strong>
+                            </div>
+                        <?php
                         } 
 
                     } else { //file wasn't created 

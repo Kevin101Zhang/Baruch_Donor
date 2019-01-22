@@ -94,7 +94,7 @@
                                     is already an existing donor. Do you want to add a PC to the existing donor?
                                 </div>
                                 <form method="post" action="add_donor_result.php">
-                                    <input id="input_img" name="img" type="hidden" value="">
+                                    <input id="input_img" name="img" type="hidden">
                                     <button type="submit" class="btn btn-primary" name="confirm_add_pc">Confirm</button>
                                 </form>
                         <?php
@@ -109,7 +109,7 @@
                                 </div>
                                 <!-- only used to display background preview, not actually a form to submit -->
                                 <form method="post" action="add_donor_result.php">
-                                    <input id="input_img" name="img" type="hidden" value="">
+                                    <input id="input_img" name="img" type="hidden">
                                 </form>  
                         <?php
                             }
@@ -121,18 +121,26 @@
                                     <strong> 
                                         <?php 
                                             $donor_row = mysqli_fetch_assoc($similar_donor_result);
+                                            $full_name = ""; //variable for similar donor preview
+
                                             foreach($donor_row as $donor_attribute) {
                                                 echo $donor_attribute, " ";
+                                                $full_name .= $donor_attribute;
+                                                $full_name .= " ";
                                             }
                                         ?> 
                                     </strong>
                                     .Would you like to add PC:<strong> <?php echo $pc_name; ?> </strong> to the existing donor? <br>
                                 </div>
                                 <form method="post" action="add_donor_result.php">
-                                    <input id="input_img" name="img" type="hidden" value="">
+                                    <input id="input_img" name="img" type="hidden">
                                     <button type="submit" class="btn btn-primary" name="confirm_add_donor">No, this is a different donor</button>
-                                    <button type="submit" class="btn btn-primary" name="confirm_add_pc">Yes, add this PC to the existing donor</button>  
+                                    
                                 </form>  
+                                <form method="post" action="exisiting_preview.php">
+                                    <input name="full_name" type="hidden" value="<?php echo $full_name ?>">
+                                    <button type="submit" class="btn btn-primary" name="confirm_add_pc">Yes, add this PC to the existing donor</button>  
+                                </form>
                         <?php      
                             }
                             //There are NO matching results. User can add this new donor.
@@ -153,7 +161,7 @@
         <?php }//closing for ifset ?>
         
         <script>
-            $("#name_here").html("<?php echo $prefix." ".$first_name." ".$last_name." ".$suffix;; ?>");
+            $("#name_here").html("<?php echo $prefix." ".$first_name." ".$last_name." ".$suffix; ?>");
             html2canvas(document.querySelector("#background_pic")).then(canvas => {
                 document.body.appendChild(canvas);
                 document.getElementById('input_img').value = canvas.toDataURL();

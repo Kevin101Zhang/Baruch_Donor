@@ -94,3 +94,25 @@
 [Jan 16, 2019 04:39:04 PM] [1] Log in
 [Jan 16, 2019 04:39:13 PM] [1] Log in
 [Jan 16, 2019 04:55:25 PM] [1] Log in
+[Jan 22, 2019 10:00:27 AM] [1] Log in
+[Jan 22, 2019 10:28:33 AM] [1] Log in
+[Jan 22, 2019 10:28:58 AM] [1] Add new donor: 'test test test ' to PC: 'test'
+[Jan 22, 2019 02:44:13 PM] [1] Log in
+[Jan 22, 2019 02:45:00 PM] [1] Delete: 'test' from Donor: test test test 
+[Jan 22, 2019 02:45:02 PM] [1] Delete: 'jhdsjkJHKDSAJHK-7824367843678243' from Donor:  dsa dsa 
+[Jan 22, 2019 02:45:03 PM] [1] Delete: '2' from Donor: 2 2 22 2
+[Jan 22, 2019 02:45:19 PM] [1] Log in
+[Jan 22, 2019 02:48:11 PM] [1] Add new donor: 'Mr. Jun Huang ' to PC: 'H6-01'
+[Jan 22, 2019 02:48:56 PM] [1] Log in
+[Jan 22, 2019 02:49:44 PM] [bctcproject] Log in
+[Jan 22, 2019 02:51:31 PM] [1] Add new PC: 'H6-02' to Donor: ' Jun Huang '
+[Jan 22, 2019 02:51:38 PM] [bctcproject] Add new donor: 'Mr. Long Shing Chan ' to PC: 'H1-05'
+[Jan 22, 2019 02:52:27 PM] [1] Add new PC: 'H6-03' to Donor: ' Long Shing Chan '
+[Jan 22, 2019 03:51:10 PM] [1] Add new PC: 'test' to Donor: ' Long Shing Chan '
+[Jan 22, 2019 03:58:05 PM] [1] Log in
+[Jan 22, 2019 03:59:13 PM] [1] Add new PC: 'test2' to Donor: 'mr. Long Shing Chan '
+[Jan 22, 2019 04:05:00 PM] [1] Add new PC: '23' to Donor: ' Long Shing Chan '
+[Jan 22, 2019 04:30:56 PM] [1] Add new PC: '12345' to Donor: 'Mr. Long Shing Chan '
+[Jan 22, 2019 04:31:19 PM] [1] Log in
+[Jan 22, 2019 04:38:46 PM] [user] Log in
+[Jan 22, 2019 04:40:15 PM] [1] Log in
